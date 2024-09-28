@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="primary">#31a9fe</color>
+    <color name="primaryStrong">#0b5ad8</color>
+    <color name="secondary">#A8C2D9</color>
+    <color name="light">#fcfdff</color>
+    <color name="carouselBackground">#666666</color>
+</resources>
