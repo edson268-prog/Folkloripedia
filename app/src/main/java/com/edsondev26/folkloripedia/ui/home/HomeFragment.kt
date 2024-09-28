@@ -34,6 +34,7 @@ class HomeFragment : Fragment() {
     private fun initCarousel() {
         list.clear()
         list.add(CarouselItem(imageDrawable = R.drawable.banner1_transparency))
+        //BORRAR
         list.add(CarouselItem("https://image.api.playstation.com/vulcan/img/rnd/202010/2621/z8upfOkL4hLU1wWc2tDiAusM.png"))
         list.add(CarouselItem("https://wallpapers.com/images/hd/crash-bandicoot-surfing-fjj7ar544srysvdq.jpg"))
         list.add(CarouselItem("https://images.wallpapersden.com/image/download/crash-bandicoot-its-about-time-hd-gaming_bWdqZmiUmZqaraWkpJRoZWVlrWZrbmc.jpg"))
