@@ -5,4 +5,6 @@ plugins {
     alias(libs.plugins.kotlin.kapt)
     alias(libs.plugins.hilt) apply false
     alias(libs.plugins.safeargs) apply false
+    alias(libs.plugins.googleServices) apply false
+    alias(libs.plugins.crashlytics) apply false
 }

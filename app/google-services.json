@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "700037271299",
+    "project_id": "folkloripedia",
+    "storage_bucket": "folkloripedia.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:700037271299:android:b7ab7520c930d2cb46e336",
+        "android_client_info": {
+          "package_name": "com.edsondev26.folkloripedia"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyApuDFdFMi0kfICGOkebM1E8gc7pQdcOvE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.edsondev26.folkloripedia.R
 import com.edsondev26.folkloripedia.databinding.FragmentHomeBinding
@@ -57,6 +58,10 @@ class HomeFragment : Fragment() {
                 Art -> ArticleModel.Art
                 Myths -> ArticleModel.Myths
             }
+            findNavController().navigate(
+                // HomeFragmentDirections was generated automatically -- Add argument on articleDetailActivity  main_graph
+                HomeFragmentDirections.actionHomeFragmentToArticleDetailActivity(type)
+            )
         })
         binding.rvArticles.apply {
             layoutManager = GridLayoutManager(context, 2)
