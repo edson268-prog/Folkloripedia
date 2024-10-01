@@ -11,7 +11,7 @@
         android:id="@+id/toolbar"
         android:layout_width="0dp"
         android:layout_height="?attr/actionBarSize"
-        android:background="@drawable/main_title_image"
+        android:background="@color/primaryStrong"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -23,9 +23,10 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@string/app_name"
+            android:background="@drawable/main_title_image"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/spLanguages"
-            app:layout_constraintHorizontal_weight="0.85"
+            app:layout_constraintHorizontal_weight="0.90"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -37,7 +38,7 @@
             android:spinnerMode="dropdown"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_weight="0.15"
+            app:layout_constraintHorizontal_weight="0.10"
             app:layout_constraintStart_toEndOf="@id/tvMainTitle"
             app:layout_constraintTop_toTopOf="parent" />
 

@@ -17,6 +17,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.edsondev26.folkloripedia.R
 import com.edsondev26.folkloripedia.databinding.ActivityMainBinding
+import com.edsondev26.folkloripedia.ui.home.adapter.LanguageSpinnerAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.Locale
 
@@ -26,6 +27,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var navController: NavController
 
     private lateinit var languages: Array<String>
+    private lateinit var flags: IntArray
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,10 +50,15 @@ class MainActivity : AppCompatActivity() {
 
     private fun initLanguageConfig() {
         languages = resources.getStringArray(R.array.languages)
+        flags = intArrayOf(R.drawable.ic_en_uk, R.drawable.ic_es_spain)
 
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, languages)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        binding.spLanguages.adapter = adapter
+
+        val flagAdapter = LanguageSpinnerAdapter(this, languages, flags)
+        binding.spLanguages.adapter = flagAdapter
+
+//        binding.spLanguages.adapter = adapter
 
         binding.spLanguages.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: android.view.View?, position: Int, id: Long) {
