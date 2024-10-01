@@ -13,4 +13,10 @@
         android:textSize="50sp"
         android:text="GAMES" />
 
+    <Button
+        android:id="@+id/btn_exception"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="EXCEPTION"/>
+
 </FrameLayout>

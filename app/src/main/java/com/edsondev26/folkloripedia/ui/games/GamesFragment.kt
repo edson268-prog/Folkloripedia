@@ -20,4 +20,15 @@ class GamesFragment : Fragment() {
         _binding = FragmentGamesBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initUI()
+    }
+
+    private fun initUI() {
+        binding.btnException.setOnClickListener {
+            throw RuntimeException("Test Crash for example") // Force a crash
+        }
+    }
 }

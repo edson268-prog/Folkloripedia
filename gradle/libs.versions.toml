@@ -14,6 +14,9 @@ navigationRuntimeKtx = "2.8.1"
 nav = "2.8.1"
 hilt = "2.48"
 whynotimagecarousel = "2.1.0"
+firebaseBom = "33.1.1"
+services = "4.4.2"
+crashlytics = "3.0.2"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -31,6 +34,11 @@ navigation-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx", version.
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
 hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hilt" }
 whynotimagecarousel = { module = "org.imaginativeworld.whynotimagecarousel:whynotimagecarousel", version.ref = "whynotimagecarousel" }
+firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
+firebase-crashlytics = {module = "com.google.firebase:firebase-crashlytics" }
+firebase-firestore = {module= "com.google.firebase:firebase-firestore"}
+firebase-realtime = {module= "com.google.firebase:firebase-database-ktx"}
+firebase-config = {module = "com.google.firebase:firebase-config-ktx"}
 
 
 [plugins]
@@ -39,4 +47,6 @@ kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 safeargs = { id = "androidx.navigation.safeargs.kotlin", version.ref = "nav" }
 kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
+googleServices = { id = "com.google.gms.google-services", version.ref = "services"}
+crashlytics = {id= "com.google.firebase.crashlytics", version.ref = "crashlytics"}
 
