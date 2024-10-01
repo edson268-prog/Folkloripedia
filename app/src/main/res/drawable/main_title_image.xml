@@ -6,6 +6,6 @@
     <item>
         <bitmap
             android:src="@drawable/bandera_bolivia_pintada"
-            android:gravity="fill" />
+            android:gravity="center|fill" />
     </item>
 </layer-list>

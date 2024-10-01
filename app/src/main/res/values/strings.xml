@@ -1,9 +1,20 @@
 <resources>
     <string name="app_name">Folkloripedia</string>
+
+    <!--    languages-->
+    <string-array name="languages">
+        <item>English</item>
+        <item>Español</item>
+    </string-array>
+
+    <!--    Home-->
     <string name="home">Inicio</string>
     <string name="games">Juegos</string>
     <string name="about">Acerca de</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="events">Eventos</string>
+    <!--    Home/Articles -->
+    <string name="music">Música</string>
+    <string name="art">Arte</string>
+    <string name="myths">Mitos</string>
+    <string name="language_icon">Idioma</string>
 </resources>

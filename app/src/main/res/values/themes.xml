@@ -9,8 +9,20 @@
 
     <style name="MainTitle">
         <item name="android:textStyle">bold</item>
-        <item name="android:fontFamily">@font/averiasanslight</item>
+        <item name="android:fontFamily">@font/sad_avenue</item>
         <item name="android:textSize">30sp</item>
-        <item name="android:textColor">@color/primary</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="SpecialName">
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/averia_sans_light</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="SpecialSubtitle">
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 </resources>
