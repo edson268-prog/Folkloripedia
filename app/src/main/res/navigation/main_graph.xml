@@ -36,6 +36,6 @@
         tools:layout="@layout/activity_category_detail" >
         <argument
             android:name="type"
-            app:argType="com.edsondev26.folkloripedia.domain.model.CategoryModel" />
+            app:argType="com.edsondev26.folkloripedia.domain.model.ArticleModel" />
     </activity>
 </navigation>

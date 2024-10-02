@@ -7,6 +7,7 @@ import javax.inject.Inject
 class HomeProvider @Inject constructor() {
     fun getArticles(): List<HomeArticleItemInfo> {
         return listOf(
+            Dance,
             Music,
             Art,
             Myths

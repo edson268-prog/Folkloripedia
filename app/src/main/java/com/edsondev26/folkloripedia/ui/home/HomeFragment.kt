@@ -54,10 +54,11 @@ class HomeFragment : Fragment() {
 
     private fun initArticlesList() {
         homeAdapter = HomeAdapter(onItemSelected = {
-            val type: CategoryModel = when (it) {
-                Music -> CategoryModel.Morenada
-                Art -> CategoryModel.Diablada
-                Myths -> CategoryModel.Tinkus
+            val type: ArticleModel = when (it) {
+                Dance -> ArticleModel.Dance
+                Music -> ArticleModel.Music
+                Art -> ArticleModel.Art
+                Myths -> ArticleModel.Myths
             }
             findNavController().navigate(
                 // HomeFragmentDirections was generated automatically -- Add argument on categoryDetailActivity  main_graph

@@ -58,6 +58,9 @@ dependencies {
     implementation(libs.circleindicator)
     implementation(libs.whynotimagecarousel)
 
+    // Picasso
+    implementation(libs.picasso)
+
     //Firebase
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.crashlytics)
