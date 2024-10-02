@@ -14,6 +14,7 @@ navigationRuntimeKtx = "2.8.1"
 nav = "2.8.1"
 hilt = "2.48"
 whynotimagecarousel = "2.1.0"
+picasso = "2.8"
 firebaseBom = "33.1.1"
 services = "4.4.2"
 crashlytics = "3.0.2"
@@ -34,6 +35,7 @@ navigation-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx", version.
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
 hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hilt" }
 whynotimagecarousel = { module = "org.imaginativeworld.whynotimagecarousel:whynotimagecarousel", version.ref = "whynotimagecarousel" }
+picasso = { group = "com.squareup.picasso", name = "picasso", version.ref = "picasso" }
 firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
 firebase-crashlytics = {module = "com.google.firebase:firebase-crashlytics" }
 firebase-firestore = {module= "com.google.firebase:firebase-firestore"}
