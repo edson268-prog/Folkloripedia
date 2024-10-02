@@ -26,17 +26,16 @@
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/action_homeFragment_to_articleDetailActivity"
-            app:destination="@id/articleDetailActivity" />
+            android:id="@+id/action_homeFragment_to_categoryDetailActivity"
+            app:destination="@id/categoryDetailActivity" />
     </fragment>
-
     <activity
-        android:id="@+id/articleDetailActivity"
-        android:name="com.edsondev26.folkloripedia.ui.article.ArticleDetailActivity"
-        android:label="activity_article_detail"
-        tools:layout="@layout/activity_article_detail" >
+        android:id="@+id/categoryDetailActivity"
+        android:name="com.edsondev26.folkloripedia.ui.category.CategoryDetailActivity"
+        android:label="activity_category_detail"
+        tools:layout="@layout/activity_category_detail" >
         <argument
             android:name="type"
-            app:argType="com.edsondev26.folkloripedia.domain.model.ArticleModel" />
+            app:argType="com.edsondev26.folkloripedia.domain.model.CategoryModel" />
     </activity>
 </navigation>

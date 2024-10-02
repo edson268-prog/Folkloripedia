@@ -1,4 +1,4 @@
-package com.edsondev26.folkloripedia.ui.article
+package com.edsondev26.folkloripedia.ui.category
 
 import android.os.Bundle
 import android.util.Log
@@ -11,32 +11,29 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.navArgs
-import androidx.recyclerview.widget.GridLayoutManager
 import com.edsondev26.folkloripedia.R
-import com.edsondev26.folkloripedia.databinding.ActivityArticleDetailBinding
-import com.edsondev26.folkloripedia.databinding.ActivityMainBinding
-import com.edsondev26.folkloripedia.domain.model.ArticleItemModel
-import com.edsondev26.folkloripedia.domain.model.ArticleItemInfo.Diablada
-import com.edsondev26.folkloripedia.domain.model.ArticleItemInfo.Morenada
-import com.edsondev26.folkloripedia.domain.model.ArticleItemInfo.Tinkus
-import com.edsondev26.folkloripedia.ui.article.adapter.ArticleAdapter
+import com.edsondev26.folkloripedia.databinding.ActivityCategoryDetailBinding
+import com.edsondev26.folkloripedia.domain.model.CategoryItemInfo.*
+import com.edsondev26.folkloripedia.domain.model.CategoryModel
+import androidx.recyclerview.widget.GridLayoutManager
+import com.edsondev26.folkloripedia.ui.category.adapter.CategoryAdapter
 import com.google.firebase.firestore.FirebaseFirestore
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class ArticleDetailActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityArticleDetailBinding
-    private val articleDetailViewModel by viewModels<ArticleDetailViewModel>()
+class CategoryDetailActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityCategoryDetailBinding
+    private val categoryViewModel by viewModels<CategoryDetailViewModel>()
 
-    private lateinit var articleAdapter: ArticleAdapter
+    private lateinit var categoryAdapter: CategoryAdapter
 
-    private val args: ArticleDetailActivityArgs by navArgs()
+    private val args: CategoryDetailActivityArgs by navArgs()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        binding = ActivityArticleDetailBinding.inflate(layoutInflater)
+        binding = ActivityCategoryDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -55,24 +52,24 @@ class ArticleDetailActivity : AppCompatActivity() {
     }
 
     private fun initListedArticles() {
-        articleAdapter = ArticleAdapter(onItemSelected = {
-            val type: ArticleItemModel = when (it) {
-                Morenada -> ArticleItemModel.Morenada
-                Diablada -> ArticleItemModel.Diablada
-                Tinkus -> ArticleItemModel.Tinkus
+        categoryAdapter = CategoryAdapter(onItemSelected = {
+            val type: CategoryModel = when (it) {
+                Morenada -> CategoryModel.Morenada
+                Diablada -> CategoryModel.Diablada
+                Tinkus -> CategoryModel.Tinkus
             }
         })
         binding.rvListedArticles.apply {
             layoutManager = GridLayoutManager(context, 1)
-            adapter = articleAdapter
+            adapter = categoryAdapter
         }
     }
 
     private fun initUIState() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
-                articleDetailViewModel.articleItems.collect {
-                    articleAdapter.updateArticleList(it)
+                categoryViewModel.categoryItems.collect {
+                    categoryAdapter.updateCategoriesList(it)
                 }
             }
         }

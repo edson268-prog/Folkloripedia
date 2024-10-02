@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.edsondev26.folkloripedia.R
 import com.edsondev26.folkloripedia.databinding.FragmentHomeBinding
 import com.edsondev26.folkloripedia.domain.model.ArticleModel
+import com.edsondev26.folkloripedia.domain.model.CategoryModel
 import com.edsondev26.folkloripedia.domain.model.HomeArticleItemInfo.*
 import com.edsondev26.folkloripedia.ui.home.adapter.HomeAdapter
 import dagger.hilt.android.AndroidEntryPoint
@@ -53,14 +54,14 @@ class HomeFragment : Fragment() {
 
     private fun initArticlesList() {
         homeAdapter = HomeAdapter(onItemSelected = {
-            val type: ArticleModel = when (it) {
-                Music -> ArticleModel.Music
-                Art -> ArticleModel.Art
-                Myths -> ArticleModel.Myths
+            val type: CategoryModel = when (it) {
+                Music -> CategoryModel.Morenada
+                Art -> CategoryModel.Diablada
+                Myths -> CategoryModel.Tinkus
             }
             findNavController().navigate(
-                // HomeFragmentDirections was generated automatically -- Add argument on articleDetailActivity  main_graph
-                HomeFragmentDirections.actionHomeFragmentToArticleDetailActivity(type)
+                // HomeFragmentDirections was generated automatically -- Add argument on categoryDetailActivity  main_graph
+                HomeFragmentDirections.actionHomeFragmentToCategoryDetailActivity(type)
             )
         })
         binding.rvArticles.apply {

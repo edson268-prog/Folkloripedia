@@ -1,6 +1,6 @@
 package com.edsondev26.folkloripedia.domain.model
 
-enum class ArticleItemModel {
+enum class CategoryModel {
     Morenada,
     Diablada,
     Tinkus
