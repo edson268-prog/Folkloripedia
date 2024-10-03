@@ -1,17 +1,26 @@
 package com.edsondev26.folkloripedia.data
 
+import android.content.Context
+import android.util.Log
 import com.edsondev26.folkloripedia.domain.CategoryRepository
 import com.edsondev26.folkloripedia.domain.model.CategoryItemModel
 import com.edsondev26.folkloripedia.domain.model.DanceDetailModel
+import com.edsondev26.folkloripedia.utils.LanguageUtils
 import com.google.firebase.firestore.FirebaseFirestore
+import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 
 class CategoryRepositoryImpl @Inject constructor(
-    private val firestore: FirebaseFirestore
+    private val firestore: FirebaseFirestore,
+    @ApplicationContext private val context: Context
 ) : CategoryRepository {
+    private fun getCurrentLanguage(): String {
+        return LanguageUtils.getSavedLanguage(context)
+    }
+
 
     override fun getCategoryItems(collectionName: String): Flow<List<CategoryItemModel>> = flow {
         try {
@@ -35,8 +44,10 @@ class CategoryRepositoryImpl @Inject constructor(
         }
     }
 
-    override fun getDancebyID(documentId: String): Flow<DanceDetailModel?> = flow {
+    override fun getDanceByID(documentId: String): Flow<DanceDetailModel?> = flow {
         try {
+            val currentLanguage = getCurrentLanguage()
+
             val documentSnapshot = firestore.collection("Dances")
                 .document(documentId)
                 .get()
@@ -46,13 +57,27 @@ class CategoryRepositoryImpl @Inject constructor(
                 val id = documentSnapshot.id
                 val name = documentSnapshot.getString("Name") ?: ""
                 val region = documentSnapshot.getString("Region") ?: ""
-                val description = documentSnapshot.getString("Description") ?: ""
+                var description = documentSnapshot.getString("Description") ?: ""
                 val instruments = documentSnapshot.getString("Instruments") ?: ""
                 val vestment = documentSnapshot.getString("Vestment") ?: ""
                 val img = documentSnapshot.getString("Image") ?: ""
                 val year = documentSnapshot.getString("Year_Origin") ?: ""
 
-                val danceItem = DanceDetailModel(id, name, region, description, instruments,vestment, img, year)
+                Log.d("LANGUAGE_UTIL", "The language is: $currentLanguage")
+                if (currentLanguage !== "es") {
+                    description = documentSnapshot.getString("Description_$currentLanguage") ?: ""
+                }
+
+                val danceItem = DanceDetailModel(
+                    id,
+                    name,
+                    region,
+                    description,
+                    instruments,
+                    vestment,
+                    img,
+                    year
+                )
                 emit(danceItem)
             } else {
                 emit(null)

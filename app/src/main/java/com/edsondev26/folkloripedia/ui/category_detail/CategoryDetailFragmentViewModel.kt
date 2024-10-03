@@ -21,7 +21,7 @@ class CategoryDetailFragmentViewModel @Inject constructor(private val categoryRe
     fun fetchDanceById(documentId: String) {
         _isLoading.value = true
         viewModelScope.launch {
-            categoryRepository.getDancebyID(documentId).collect { item ->
+            categoryRepository.getDanceByID(documentId).collect { item ->
                 _danceItem.value = item
                 _isLoading.value = false
             }

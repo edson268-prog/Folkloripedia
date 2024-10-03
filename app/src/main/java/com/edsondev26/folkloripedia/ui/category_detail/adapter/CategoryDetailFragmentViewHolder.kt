@@ -10,8 +10,12 @@ class CategoryDetailFragmentViewHolder(view: View) : RecyclerView.ViewHolder(vie
     private val bindingDance = FragmentDanceBinding.bind(view)
 
     fun renderDance(danceInfo: DanceDetailModel, onItemSelected: (DanceDetailModel) -> Unit) {
-//        Picasso.get().load(category.img).into(binding.ivListedArticle)
+        Picasso.get().load(danceInfo.img).into(bindingDance.ivDance)
         bindingDance.tvDanceName.text = danceInfo.name
+        bindingDance.tvDanceRegion.text = danceInfo.region
         bindingDance.tvDanceDescription.text = danceInfo.description
+        bindingDance.tvDanceInstruments.text = danceInfo.instruments
+        bindingDance.tvDanceVestment.text = danceInfo.vestment
+        bindingDance.tvDanceYear.text = danceInfo.year
     }
 }

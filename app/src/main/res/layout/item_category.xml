@@ -18,7 +18,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintWidth_percent="0.5"
         tools:src="@drawable/banner1_transparency"
-        app:shapeAppearanceOverlay="@style/roundedImageView"/>
+        app:shapeAppearanceOverlay="@style/RoundedImageView"/>
 
     <LinearLayout
         android:id="@+id/textContainer"

@@ -1,6 +1,5 @@
 package com.edsondev26.folkloripedia.domain.model
 
-//@Parcelize
 data class DanceDetailModel(
     val id: String,
     val name: String,

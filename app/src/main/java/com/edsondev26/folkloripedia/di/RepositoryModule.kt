@@ -14,6 +14,6 @@ abstract class RepositoryModule {
     @Binds
     @Singleton
     abstract fun bindCategoryRepository(
-        categoryRepositoryImpl: CategoryRepositoryImpl
+        categoryRepositoryImpl: CategoryRepositoryImpl,
     ): CategoryRepository
 }

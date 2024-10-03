@@ -19,10 +19,6 @@ class CategoryDetailViewModel @Inject constructor(private val categoryRepository
     private var _isLoading = MutableStateFlow(true)
     val isLoading: StateFlow<Boolean> = _isLoading
 
-//    init {
-//        fetchCategoryItems()
-//    }
-
     fun fetchCategoryItems(collectionName: String) {
         _isLoading.value = true
         viewModelScope.launch {

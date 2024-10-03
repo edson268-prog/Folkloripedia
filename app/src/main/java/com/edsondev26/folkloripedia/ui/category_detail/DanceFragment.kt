@@ -12,6 +12,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.edsondev26.folkloripedia.databinding.FragmentDanceBinding
 import com.edsondev26.folkloripedia.domain.model.DanceDetailModel
+import com.edsondev26.folkloripedia.ui.category_detail.adapter.CategoryDetailFragmentViewHolder
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -22,6 +23,8 @@ class DanceFragment : Fragment() {
     private var _binding: FragmentDanceBinding? = null
     private val binding get() = _binding!!
 
+    private lateinit var viewHolder: CategoryDetailFragmentViewHolder
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -31,10 +34,11 @@ class DanceFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        viewHolder = CategoryDetailFragmentViewHolder(view)
         val itemId = requireArguments().getString("ITEM_ID", "")
         danceViewModel.fetchDanceById(itemId)
+
         initUI()
-        getDanceItem()
 
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
             requireActivity().finish()
@@ -65,15 +69,10 @@ class DanceFragment : Fragment() {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 danceViewModel.danceItem.collect { danceItem ->
                     danceItem?.let {
-                        renderDance(it)
+                        viewHolder.renderDance(it){ }
                     }
                 }
             }
         }
-    }
-
-    private fun renderDance(danceItem: DanceDetailModel) {
-        binding.tvDanceName.text = danceItem.name
-        binding.tvDanceDescription.text = danceItem.description
     }
 }

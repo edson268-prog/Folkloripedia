@@ -66,7 +66,7 @@ class CategoryDetailActivity : AppCompatActivity() {
     private fun initListedArticles(collectionName: String) {
         viewModel.fetchCategoryItems(collectionName)
 
-        // When I press on the element
+        // When the element is pressed
         categoryAdapter = CategoryAdapter { selectedItem ->
             val itemId = selectedItem.id
             Toast.makeText(this, "Selected: $itemId", Toast.LENGTH_SHORT).show()
