@@ -58,8 +58,6 @@ class MainActivity : AppCompatActivity() {
         val flagAdapter = LanguageSpinnerAdapter(this, languages, flags)
         binding.spLanguages.adapter = flagAdapter
 
-//        binding.spLanguages.adapter = adapter
-
         binding.spLanguages.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: android.view.View?, position: Int, id: Long) {
 
@@ -73,9 +71,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
 
-            override fun onNothingSelected(parent: AdapterView<*>) {
-                // No hacer nada
-            }
+            override fun onNothingSelected(parent: AdapterView<*>) { }
         }
     }
 

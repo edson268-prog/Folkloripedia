@@ -38,4 +38,14 @@
             android:name="type"
             app:argType="com.edsondev26.folkloripedia.domain.model.ArticleModel" />
     </activity>
+    <fragment
+        android:id="@+id/artFragment"
+        android:name="com.edsondev26.folkloripedia.ui.category_detail.ArtFragment"
+        android:label="fragment_art"
+        tools:layout="@layout/fragment_art" />
+    <fragment
+        android:id="@+id/danceFragment"
+        android:name="com.edsondev26.folkloripedia.ui.category_detail.DanceFragment"
+        android:label="fragment_dance"
+        tools:layout="@layout/fragment_dance" />
 </navigation>

@@ -1,7 +1,7 @@
 package com.edsondev26.folkloripedia.domain.model
 
 enum class ArticleModel {
-    Dance,
+    Dances,
     Music,
     Art,
     Myths
