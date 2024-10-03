@@ -18,4 +18,9 @@
     <string name="art">Arte</string>
     <string name="myths">Mitos</string>
     <string name="language_icon">Idioma</string>
+    <string name="description">Descripción:</string>
+    <string name="region">Región:</string>
+    <string name="instruments">Instrumentos:</string>
+    <string name="vestment">Vestimenta:</string>
+    <string name="year">Año:</string>
 </resources>

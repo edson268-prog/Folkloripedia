@@ -9,4 +9,6 @@
     <color name="light">#fcfdff</color>
     <color name="light_gray">#e6e6e6</color>
     <color name="carouselBackground">#666666</color>
+
+    <color name="red">#FF0000</color>
 </resources>

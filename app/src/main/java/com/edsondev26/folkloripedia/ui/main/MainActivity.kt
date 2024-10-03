@@ -3,6 +3,7 @@ package com.edsondev26.folkloripedia.ui.main
 import android.content.Context
 import android.content.res.Configuration
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -18,6 +19,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.edsondev26.folkloripedia.R
 import com.edsondev26.folkloripedia.databinding.ActivityMainBinding
 import com.edsondev26.folkloripedia.ui.home.adapter.LanguageSpinnerAdapter
+import com.edsondev26.folkloripedia.utils.LanguageUtils
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.Locale
 
@@ -58,14 +60,12 @@ class MainActivity : AppCompatActivity() {
         val flagAdapter = LanguageSpinnerAdapter(this, languages, flags)
         binding.spLanguages.adapter = flagAdapter
 
-//        binding.spLanguages.adapter = adapter
-
         binding.spLanguages.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: android.view.View?, position: Int, id: Long) {
 
                 val selectedLanguageCode = if (position == 0) "en" else "es"
 
-                val currentLanguage = getSelectedLanguage()
+                val currentLanguage = LanguageUtils.getSavedLanguage(this@MainActivity)
 
                 if (selectedLanguageCode != currentLanguage) {
                     Toast.makeText(this@MainActivity, "Selected: ${languages[position]}", Toast.LENGTH_SHORT).show()
@@ -73,9 +73,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
 
-            override fun onNothingSelected(parent: AdapterView<*>) {
-                // No hacer nada
-            }
+            override fun onNothingSelected(parent: AdapterView<*>) { }
         }
     }
 
@@ -85,18 +83,10 @@ class MainActivity : AppCompatActivity() {
         val config = Configuration()
         config.setLocale(locale)
         resources.updateConfiguration(config, resources.displayMetrics)
+
         recreate()
 
-        val sharedPref = getSharedPreferences("LanguagePref", Context.MODE_PRIVATE)
-        with(sharedPref.edit()) {
-            putString("SelectedLanguage", languageCode)
-            apply()
-        }
-    }
-
-    private fun getSelectedLanguage(): String {
-        val sharedPref = getSharedPreferences("LanguagePref", Context.MODE_PRIVATE)
-        return sharedPref.getString("SelectedLanguage", "en") ?: "en"
+        LanguageUtils.setLanguage(this, languageCode)
     }
 
     private fun initNavigation() {

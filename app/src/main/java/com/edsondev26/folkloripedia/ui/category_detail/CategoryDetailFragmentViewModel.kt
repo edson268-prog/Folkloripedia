@@ -1,9 +1,9 @@
-package com.edsondev26.folkloripedia.ui.category
+package com.edsondev26.folkloripedia.ui.category_detail
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.edsondev26.folkloripedia.domain.CategoryRepository
-import com.edsondev26.folkloripedia.domain.model.CategoryItemModel
+import com.edsondev26.folkloripedia.domain.model.DanceDetailModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -11,19 +11,18 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class CategoryDetailViewModel @Inject constructor(private val categoryRepository: CategoryRepository):
-    ViewModel() {
-    private var _categoryItems = MutableStateFlow<List<CategoryItemModel>>(emptyList())
-    val categoryItems: StateFlow<List<CategoryItemModel>> = _categoryItems
+class CategoryDetailFragmentViewModel @Inject constructor(private val categoryRepository: CategoryRepository): ViewModel() {
+    private val _danceItem = MutableStateFlow<DanceDetailModel?>(null)
+    val danceItem: MutableStateFlow<DanceDetailModel?> get() = _danceItem
 
     private var _isLoading = MutableStateFlow(true)
     val isLoading: StateFlow<Boolean> = _isLoading
 
-    fun fetchCategoryItems(collectionName: String) {
+    fun fetchDanceById(documentId: String) {
         _isLoading.value = true
         viewModelScope.launch {
-            categoryRepository.getCategoryItems(collectionName).collect { items ->
-                _categoryItems.value = items
+            categoryRepository.getDanceByID(documentId).collect { item ->
+                _danceItem.value = item
                 _isLoading.value = false
             }
         }

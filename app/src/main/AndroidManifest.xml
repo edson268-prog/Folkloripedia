@@ -16,20 +16,16 @@
         android:theme="@style/Theme.Folkloripedia"
         tools:targetApi="31">
         <activity
+            android:name=".ui.category_detail.CategoryDetailFragmentActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.category.CategoryDetailActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.categories.CategoryDetailActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.article.ArticleDetailActivity"
             android:exported="false" />
         <activity
             android:name=".ui.main.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

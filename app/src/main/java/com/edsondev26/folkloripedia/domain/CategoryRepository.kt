@@ -1,7 +1,10 @@
 package com.edsondev26.folkloripedia.domain
-import com.edsondev26.folkloripedia.domain.model.CategoryItemInfo
+import com.edsondev26.folkloripedia.domain.model.CategoryItemModel
+import com.edsondev26.folkloripedia.domain.model.DanceDetailModel
 import kotlinx.coroutines.flow.Flow
 
 interface CategoryRepository {
-    fun getCategoryItems(): Flow<List<CategoryItemInfo>>
+    fun getCategoryItems(collectionName: String): Flow<List<CategoryItemModel>>
+
+    fun getDanceByID(documentId: String): Flow<DanceDetailModel?>
 }

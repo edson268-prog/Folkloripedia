@@ -1,39 +1,89 @@
 package com.edsondev26.folkloripedia.data
 
+import android.content.Context
 import android.util.Log
 import com.edsondev26.folkloripedia.domain.CategoryRepository
-import com.edsondev26.folkloripedia.domain.model.CategoryItemInfo
+import com.edsondev26.folkloripedia.domain.model.CategoryItemModel
+import com.edsondev26.folkloripedia.domain.model.DanceDetailModel
+import com.edsondev26.folkloripedia.utils.LanguageUtils
 import com.google.firebase.firestore.FirebaseFirestore
+import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 
 class CategoryRepositoryImpl @Inject constructor(
-    private val firestore: FirebaseFirestore
+    private val firestore: FirebaseFirestore,
+    @ApplicationContext private val context: Context
 ) : CategoryRepository {
+    private fun getCurrentLanguage(): String {
+        return LanguageUtils.getSavedLanguage(context)
+    }
 
-    override fun getCategoryItems(): Flow<List<CategoryItemInfo>> = flow {
+
+    override fun getCategoryItems(collectionName: String): Flow<List<CategoryItemModel>> = flow {
         try {
-            val result = firestore.collection("Dances")
+            val result = firestore.collection(collectionName)
                 .get()
                 .await()
 
             val danceList = result.map { document ->
+                val id = document.id
                 val img = document.getString("Image") ?: ""
                 val name = document.getString("Name") ?: ""
-                val region = document.getString("Region") ?: ""
-                val year = document.getString("Year_Origin")?: ""
+                val type = document.getString("Type") ?: ""
 
-                Log.d("FirebaseFirestore", "Nombre: $name, img: $img")
-
-                CategoryItemInfo(img, name, region, year)
+//                Log.d("FirebaseFirestore", "Nombre: $name, img: $img")
+                CategoryItemModel(id, name, type, img)
             }
-
             emit(danceList)
 
         } catch (e: Exception) {
             emit(emptyList())
+        }
+    }
+
+    override fun getDanceByID(documentId: String): Flow<DanceDetailModel?> = flow {
+        try {
+            val currentLanguage = getCurrentLanguage()
+
+            val documentSnapshot = firestore.collection("Dances")
+                .document(documentId)
+                .get()
+                .await()
+
+            if (documentSnapshot.exists()) {
+                val id = documentSnapshot.id
+                val name = documentSnapshot.getString("Name") ?: ""
+                val region = documentSnapshot.getString("Region") ?: ""
+                var description = documentSnapshot.getString("Description") ?: ""
+                val instruments = documentSnapshot.getString("Instruments") ?: ""
+                val vestment = documentSnapshot.getString("Vestment") ?: ""
+                val img = documentSnapshot.getString("Image") ?: ""
+                val year = documentSnapshot.getString("Year_Origin") ?: ""
+
+                Log.d("LANGUAGE_UTIL", "The language is: $currentLanguage")
+                if (currentLanguage !== "es") {
+                    description = documentSnapshot.getString("Description_$currentLanguage") ?: ""
+                }
+
+                val danceItem = DanceDetailModel(
+                    id,
+                    name,
+                    region,
+                    description,
+                    instruments,
+                    vestment,
+                    img,
+                    year
+                )
+                emit(danceItem)
+            } else {
+                emit(null)
+            }
+        } catch (e: Exception) {
+            emit(null)
         }
     }
 }
