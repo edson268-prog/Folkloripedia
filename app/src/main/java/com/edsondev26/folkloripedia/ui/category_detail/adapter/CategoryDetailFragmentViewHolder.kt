@@ -13,7 +13,7 @@ class CategoryDetailFragmentViewHolder(view: View) : RecyclerView.ViewHolder(vie
         Picasso.get().load(danceInfo.img).into(bindingDance.ivDance)
         bindingDance.tvDanceName.text = danceInfo.name
         bindingDance.tvDanceRegion.text = danceInfo.region
-        bindingDance.tvDanceDescription.text = danceInfo.description
+        bindingDance.tvDanceDescription.text = danceInfo.description.replace("||", "\n\n")
         bindingDance.tvDanceInstruments.text = danceInfo.instruments
         bindingDance.tvDanceVestment.text = danceInfo.vestment
         bindingDance.tvDanceYear.text = danceInfo.year

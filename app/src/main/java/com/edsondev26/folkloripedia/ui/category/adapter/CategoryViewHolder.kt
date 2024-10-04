@@ -12,9 +12,7 @@ class CategoryViewHolder (view: View) : RecyclerView.ViewHolder(view) {
     fun render(category: CategoryItemModel, onItemSelected: (CategoryItemModel) -> Unit) {
         Picasso.get().load(category.img).into(binding.ivListedArticle)
         binding.tvListedName.text = category.name
-        binding.tvListedType.text = category.type
-//        binding.tvListedYear.text = category.year.toString()
-
+        binding.tvInfo.text = category.info
         itemView.setOnClickListener { onItemSelected(category) }
     }
 }

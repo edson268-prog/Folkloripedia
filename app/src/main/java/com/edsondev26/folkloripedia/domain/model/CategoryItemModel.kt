@@ -5,4 +5,5 @@ data class CategoryItemModel(
     val name: String,
     val type: String,
     val img: String,
+    val info: String,
 )

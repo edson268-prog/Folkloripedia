@@ -56,7 +56,7 @@ class HomeFragment : Fragment() {
             val type: ArticleModel = when (it) {
                 Dance -> ArticleModel.Dances
                 Music -> ArticleModel.Music
-                Art -> ArticleModel.Art
+                Art -> ArticleModel.Arts
                 Myths -> ArticleModel.Myths
             }
             findNavController().navigate(
