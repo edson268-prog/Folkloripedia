@@ -17,7 +17,7 @@
             android:layout_height="0dp"
             android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_percent="0.4"
+            app:layout_constraintHeight_percent="0.3"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:background="@color/red" />
@@ -30,8 +30,9 @@
             app:cardCornerRadius="22dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_percent="0.6"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivDance"
+            android:layout_marginTop="-20dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -94,12 +95,12 @@
                             android:layout_height="wrap_content"
                             android:text="@string/vestment" />
 
-                        <TextView
-                            android:id="@+id/tvDanceVestment"
-                            style="@style/TableValue"
-                            android:layout_width="match_parent"
+                        <ImageButton
+                            android:id="@+id/btnShowVestmentImage"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:padding="8dp" />
+                            android:src="@drawable/ic_image"
+                            android:contentDescription="@string/vestment" />
                     </TableRow>
 
                     <TableRow>

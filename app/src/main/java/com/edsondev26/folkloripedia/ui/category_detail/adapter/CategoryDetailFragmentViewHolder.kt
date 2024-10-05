@@ -15,7 +15,7 @@ class CategoryDetailFragmentViewHolder(view: View) : RecyclerView.ViewHolder(vie
         bindingDance.tvDanceRegion.text = danceInfo.region
         bindingDance.tvDanceDescription.text = danceInfo.description.replace("||", "\n\n")
         bindingDance.tvDanceInstruments.text = danceInfo.instruments
-        bindingDance.tvDanceVestment.text = danceInfo.vestment
+//        bindingDance.tvDanceVestment.text = danceInfo.vestment
         bindingDance.tvDanceYear.text = danceInfo.year
     }
 }
