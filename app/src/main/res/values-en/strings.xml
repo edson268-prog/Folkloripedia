@@ -27,5 +27,10 @@
     <string name="instruments">Instruments:</string>
     <string name="vestment">Vestment:</string>
     <string name="year">Year:</string>
+    <string name="close">Close</string>
+    <string name="author">Author:</string>
+    <string name="material">Material:</string>
+    <string name="origin">Origin:</string>
+    <string name="category">Category:</string>
 
 </resources>

@@ -1,18 +1,24 @@
 package com.edsondev26.folkloripedia.ui.category_detail
 
+import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.ProgressBar
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import com.edsondev26.folkloripedia.R
 import com.edsondev26.folkloripedia.databinding.FragmentDanceBinding
-import com.edsondev26.folkloripedia.domain.model.DanceDetailModel
-import com.edsondev26.folkloripedia.ui.category_detail.adapter.CategoryDetailFragmentViewHolder
+import com.edsondev26.folkloripedia.ui.category_detail.adapter.DanceDetailFragmentViewHolder
+import com.squareup.picasso.Callback
+import com.squareup.picasso.Picasso
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -23,7 +29,9 @@ class DanceFragment : Fragment() {
     private var _binding: FragmentDanceBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var viewHolder: CategoryDetailFragmentViewHolder
+    private lateinit var viewHolder: DanceDetailFragmentViewHolder
+
+    private var vestmentImageUrl: String? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,7 +42,7 @@ class DanceFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        viewHolder = CategoryDetailFragmentViewHolder(view)
+        viewHolder = DanceDetailFragmentViewHolder(view)
         val itemId = requireArguments().getString("ITEM_ID", "")
         danceViewModel.fetchDanceById(itemId)
 
@@ -47,8 +55,10 @@ class DanceFragment : Fragment() {
 
     private fun initUI() {
         getDanceItem()
+        initListeners()
         initUIState()
     }
+
 
     private fun getDanceItem() {
         lifecycleScope.launch {
@@ -64,15 +74,51 @@ class DanceFragment : Fragment() {
         }
     }
 
+    private fun initListeners() {
+        binding.btnShowVestmentImage.setOnClickListener {
+            showImageDialog()
+        }
+    }
+
     private fun initUIState() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 danceViewModel.danceItem.collect { danceItem ->
                     danceItem?.let {
+                        vestmentImageUrl = it.vestment
                         viewHolder.renderDance(it){ }
                     }
                 }
             }
         }
+    }
+
+    private fun showImageDialog() {
+        val dialog = Dialog(requireContext())
+
+        dialog.setContentView(R.layout.dialog_image)
+
+        val imageView = dialog.findViewById<ImageView>(R.id.dialogImageView)
+        val progressBar = dialog.findViewById<ProgressBar>(R.id.loadingProgressBar)
+
+        Picasso.get()
+            .load(vestmentImageUrl)
+            .into(imageView, object : Callback {
+                override fun onSuccess() {
+                    progressBar.visibility = View.GONE
+                }
+
+                override fun onError(e: Exception?) {
+                    progressBar.visibility = View.GONE
+                    imageView.setImageResource(R.drawable.image_not_available)
+                }
+            })
+
+        val btnClose = dialog.findViewById<Button>(R.id.btnClose)
+        btnClose.setOnClickListener {
+            dialog.dismiss()
+        }
+
+        dialog.show()
     }
 }

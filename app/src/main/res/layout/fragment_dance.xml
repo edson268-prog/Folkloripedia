@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.category_detail.DanceFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -15,117 +15,131 @@
             android:id="@+id/ivDance"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintHeight_percent="0.4"
             android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.3"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:background="@color/red"/>
+            tools:background="@color/red" />
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cvDanceName"
+            android:id="@+id/cvDanceCard"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:elevation="8dp"
             app:cardCornerRadius="22dp"
-            app:layout_constraintHeight_percent="0.6"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent">
+            app:layout_constraintTop_toBottomOf="@id/ivDance"
+            android:layout_marginTop="-20dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@color/secondary"
                 android:orientation="vertical"
                 android:padding="16dp">
 
                 <TextView
                     android:id="@+id/tvDanceName"
+                    style="@style/ItemTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
-                    style="@style/ItemTitle"
                     tools:text="HOMLA" />
 
                 <TableLayout
                     android:id="@+id/tlDanceInfo"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:stretchColumns="1"
-                    android:background="@color/secondary"
-                    android:padding="16dp">
+                    android:stretchColumns="1">
 
                     <TableRow>
+
                         <TextView
-                            android:layout_width="wrap_content"
+                            style="@style/TableLabel"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/region"
-                            style="@style/TableLabel"/>
+                            android:text="@string/region" />
 
                         <TextView
                             android:id="@+id/tvDanceRegion"
-                            android:layout_width="wrap_content"
+                            style="@style/TableValue"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:padding="8dp"
-                            style="@style/TableValue"/>
+                            android:padding="8dp" />
                     </TableRow>
+
                     <TableRow>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/description"
-                            style="@style/TableLabel"/>
 
                         <TextView
-                            android:id="@+id/tvDanceDescription"
-                            android:layout_width="wrap_content"
+                            style="@style/TableLabel"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:padding="8dp"
-                            style="@style/TableValue"/>
-                    </TableRow>
-                    <TableRow>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/instruments"
-                            style="@style/TableLabel"/>
+                            android:text="@string/instruments" />
 
                         <TextView
                             android:id="@+id/tvDanceInstruments"
-                            android:layout_width="wrap_content"
+                            style="@style/TableValue"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:padding="8dp"
-                            style="@style/TableValue"/>
+                            android:scrollHorizontally="false" />
                     </TableRow>
+
                     <TableRow>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/vestment"
-                            style="@style/TableLabel"/>
 
                         <TextView
-                            android:id="@+id/tvDanceVestment"
+                            style="@style/TableLabel"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/vestment" />
+
+                        <ImageButton
+                            android:id="@+id/btnShowVestmentImage"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:padding="8dp"
-                            style="@style/TableValue"/>
+                            android:src="@drawable/ic_image"
+                            android:contentDescription="@string/vestment" />
                     </TableRow>
+
                     <TableRow>
+
                         <TextView
-                            android:layout_width="wrap_content"
+                            style="@style/TableLabel"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/year"
-                            style="@style/TableLabel"/>
+                            android:text="@string/year" />
 
                         <TextView
                             android:id="@+id/tvDanceYear"
-                            android:layout_width="wrap_content"
+                            style="@style/TableValue"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:padding="8dp"
-                            style="@style/TableValue"/>
+                            android:padding="8dp" />
                     </TableRow>
                 </TableLayout>
+
+                <TextView
+                    style="@style/TableLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/description" />
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tvDanceDescription"
+                        style="@style/TableValue"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        android:scrollHorizontally="false"
+                        tools:text="Description" />
+                </ScrollView>
+
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -136,9 +150,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:indeterminateTint="@color/primary"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
