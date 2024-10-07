@@ -23,7 +23,7 @@
             tools:background="@color/red" />
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cvDanceName"
+            android:id="@+id/cvDanceCard"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:elevation="8dp"
@@ -36,7 +36,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:background="@color/secondary"
                 android:orientation="vertical"
                 android:padding="16dp">
@@ -137,7 +137,7 @@
                         android:layout_height="wrap_content"
                         android:padding="8dp"
                         android:scrollHorizontally="false"
-                        tools:text="asjkhdhbasbdjhasdhsahjdsgjhdgshjdgasjhgdhjasgdjhasgdhjsagdjhsaghdsghdgsdg" />
+                        tools:text="Description" />
                 </ScrollView>
 
             </LinearLayout>

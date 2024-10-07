@@ -4,15 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.category_detail.ArtFragment">
+    tools:context=".ui.category_detail.MusicFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/artPreview"
+        android:id="@+id/musicPreview"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/ivArt"
+            android:id="@+id/ivMusic"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:scaleType="centerCrop"
@@ -23,16 +23,16 @@
             tools:background="@color/red" />
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cvArtCard"
+            android:id="@+id/cvMusicCard"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_marginTop="-20dp"
             android:elevation="8dp"
             app:cardCornerRadius="22dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivArt"
-            android:layout_marginTop="-20dp">
+            app:layout_constraintTop_toBottomOf="@id/ivMusic">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -42,7 +42,7 @@
                 android:padding="16dp">
 
                 <TextView
-                    android:id="@+id/tvArtName"
+                    android:id="@+id/tvMusicName"
                     style="@style/ItemTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -50,7 +50,7 @@
                     tools:text="HOMLA" />
 
                 <TableLayout
-                    android:id="@+id/tlArtInfo"
+                    android:id="@+id/tlDanceInfo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:stretchColumns="1">
@@ -61,10 +61,10 @@
                             style="@style/TableLabel"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/author" />
+                            android:text="@string/origin" />
 
                         <TextView
-                            android:id="@+id/tvArtAuthor"
+                            android:id="@+id/tvMusicOrigin"
                             style="@style/TableValue"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -77,16 +77,47 @@
                             style="@style/TableLabel"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:text="@string/category" />
+
+                        <TextView
+                            android:id="@+id/tvMusicCategory"
+                            style="@style/TableValue"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="8dp" />
+                    </TableRow>
+
+                    <!--                <TableRow>-->
+
+                    <!--                    <TextView-->
+                    <!--                        style="@style/TableLabel"-->
+                    <!--                        android:layout_width="match_parent"-->
+                    <!--                        android:layout_height="wrap_content"-->
+                    <!--                        android:text="@string/vestment" />-->
+
+                    <!--                    <ImageButton-->
+                    <!--                        android:id="@+id/btnShowVestmentImage"-->
+                    <!--                        android:layout_width="wrap_content"-->
+                    <!--                        android:layout_height="wrap_content"-->
+                    <!--                        android:src="@drawable/ic_image"-->
+                    <!--                        android:contentDescription="@string/vestment" />-->
+                    <!--                </TableRow>-->
+
+                    <TableRow>
+
+                        <TextView
+                            style="@style/TableLabel"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
                             android:text="@string/material" />
 
                         <TextView
-                            android:id="@+id/tvArtMaterial"
+                            android:id="@+id/tvMusicMaterial"
                             style="@style/TableValue"
-                            android:layout_width="0dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:scrollHorizontally="false" />
+                            android:padding="8dp" />
                     </TableRow>
-
                 </TableLayout>
 
                 <TextView
@@ -100,7 +131,7 @@
                     android:layout_height="wrap_content">
 
                     <TextView
-                        android:id="@+id/tvArtDescription"
+                        android:id="@+id/tvDanceDescription"
                         style="@style/TableValue"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -112,6 +143,18 @@
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabPlayMusic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="32dp"
+            android:src="@drawable/ic_speaker"
+            app:backgroundTint="@color/primaryStrong"
+            app:fabSize="normal"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:tint="@color/white" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

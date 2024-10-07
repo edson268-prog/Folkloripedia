@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.Window
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.ProgressBar
@@ -17,7 +16,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.edsondev26.folkloripedia.R
 import com.edsondev26.folkloripedia.databinding.FragmentDanceBinding
-import com.edsondev26.folkloripedia.ui.category_detail.adapter.CategoryDetailFragmentViewHolder
+import com.edsondev26.folkloripedia.ui.category_detail.adapter.DanceDetailFragmentViewHolder
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 import dagger.hilt.android.AndroidEntryPoint
@@ -30,7 +29,7 @@ class DanceFragment : Fragment() {
     private var _binding: FragmentDanceBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var viewHolder: CategoryDetailFragmentViewHolder
+    private lateinit var viewHolder: DanceDetailFragmentViewHolder
 
     private var vestmentImageUrl: String? = null
 
@@ -43,7 +42,7 @@ class DanceFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        viewHolder = CategoryDetailFragmentViewHolder(view)
+        viewHolder = DanceDetailFragmentViewHolder(view)
         val itemId = requireArguments().getString("ITEM_ID", "")
         danceViewModel.fetchDanceById(itemId)
 

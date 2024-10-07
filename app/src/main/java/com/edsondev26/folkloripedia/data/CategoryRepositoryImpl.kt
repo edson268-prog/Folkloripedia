@@ -3,10 +3,12 @@ package com.edsondev26.folkloripedia.data
 import android.content.Context
 import android.util.Log
 import com.edsondev26.folkloripedia.domain.CategoryRepository
+import com.edsondev26.folkloripedia.domain.model.ArtDetailModel
 import com.edsondev26.folkloripedia.domain.model.ArticleModel
 import com.edsondev26.folkloripedia.domain.model.ArticleModel.*
 import com.edsondev26.folkloripedia.domain.model.CategoryItemModel
 import com.edsondev26.folkloripedia.domain.model.DanceDetailModel
+import com.edsondev26.folkloripedia.domain.model.MusicDetailModel
 import com.edsondev26.folkloripedia.utils.LanguageUtils
 import com.google.firebase.firestore.FirebaseFirestore
 import dagger.hilt.android.qualifiers.ApplicationContext
@@ -92,7 +94,89 @@ class CategoryRepositoryImpl @Inject constructor(
         }
     }
 
-    fun getInfoValue(collectionName: String): String {
+    override fun getArtByID(documentId: String): Flow<ArtDetailModel?> = flow {
+        try {
+            val currentLanguage = getCurrentLanguage()
+
+            val documentSnapshot = firestore.collection("Arts")
+                .document(documentId)
+                .get()
+                .await()
+
+            if (documentSnapshot.exists()) {
+                val id = documentSnapshot.id
+                val name = documentSnapshot.getString("Name") ?: ""
+                val author = documentSnapshot.getString("Author") ?: ""
+                var description = documentSnapshot.getString("Description") ?: ""
+                val img = documentSnapshot.getString("Image") ?: ""
+                var material = documentSnapshot.getString("Material") ?: ""
+
+                if (currentLanguage !== "es") {
+                    description = documentSnapshot.getString("Description_$currentLanguage") ?: ""
+                    material = documentSnapshot.getString("Material_$currentLanguage") ?: ""
+                }
+
+                val artItem = ArtDetailModel(
+                    id,
+                    name,
+                    author,
+                    description,
+                    material,
+                    img
+                )
+                emit(artItem)
+            } else {
+                emit(null)
+            }
+        } catch (e: Exception) {
+            emit(null)
+        }
+    }
+
+    override fun getMusicByID(documentId: String): Flow<MusicDetailModel?> = flow {
+        try {
+            val currentLanguage = getCurrentLanguage()
+
+            val documentSnapshot = firestore.collection("Music")
+                .document(documentId)
+                .get()
+                .await()
+
+            if (documentSnapshot.exists()) {
+                val id = documentSnapshot.id
+                val name = documentSnapshot.getString("Name") ?: ""
+                val category = documentSnapshot.getString("Category") ?: ""
+                var description = documentSnapshot.getString("Description") ?: ""
+                var material = documentSnapshot.getString("Material") ?: ""
+                val origin = documentSnapshot.getString("Origin") ?: ""
+                val img = documentSnapshot.getString("Image") ?: ""
+                val sound = documentSnapshot.getString("Sound") ?: ""
+
+                if (currentLanguage !== "es") {
+                    description = documentSnapshot.getString("Description_$currentLanguage") ?: ""
+                    material = documentSnapshot.getString("Material_$currentLanguage") ?: ""
+                }
+
+                val artItem = MusicDetailModel(
+                    id,
+                    name,
+                    category,
+                    description,
+                    material,
+                    origin,
+                    img,
+                    sound
+                )
+                emit(artItem)
+            } else {
+                emit(null)
+            }
+        } catch (e: Exception) {
+            emit(null)
+        }
+    }
+
+    private fun getInfoValue(collectionName: String): String {
         val articleModel = try {
             ArticleModel.valueOf(collectionName)
         } catch (e: IllegalArgumentException) {
@@ -104,7 +188,7 @@ class CategoryRepositoryImpl @Inject constructor(
                 return "Region"
             }
             Music -> {
-                return "Name"
+                return "Origin"
             }
             Arts -> {
                 return "Author"
