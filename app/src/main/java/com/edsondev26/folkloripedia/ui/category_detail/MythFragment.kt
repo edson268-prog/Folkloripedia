@@ -10,32 +10,32 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import com.edsondev26.folkloripedia.databinding.FragmentArtBinding
-import com.edsondev26.folkloripedia.ui.category_detail.adapter.ArtDetailFragmentViewHolder
+import com.edsondev26.folkloripedia.databinding.FragmentMythBinding
+import com.edsondev26.folkloripedia.ui.category_detail.adapter.MythDetailFragmentViewHolder
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class ArtFragment : Fragment() {
-    private val artViewModel by viewModels<CategoryDetailFragmentViewModel>()
+class MythFragment : Fragment() {
+    private val mythViewModel by viewModels<CategoryDetailFragmentViewModel>()
 
-    private var _binding: FragmentArtBinding? = null
+    private var _binding: FragmentMythBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var viewHolder: ArtDetailFragmentViewHolder
+    private lateinit var viewHolder: MythDetailFragmentViewHolder
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentArtBinding.inflate(layoutInflater, container, false)
+        _binding = FragmentMythBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        viewHolder = ArtDetailFragmentViewHolder(view)
+        viewHolder = MythDetailFragmentViewHolder(view)
         val itemId = requireArguments().getString("ITEM_ID", "")
-        artViewModel.fetchArtById(itemId)
+        mythViewModel.fetchMythById(itemId)
 
         initUI()
 
@@ -45,19 +45,19 @@ class ArtFragment : Fragment() {
     }
 
     private fun initUI() {
-        getArtItem()
+        getMythItem()
         initUIState()
     }
 
-    private fun getArtItem() {
+    private fun getMythItem() {
         lifecycleScope.launch {
-            artViewModel.isLoading.collect { isLoading ->
+            mythViewModel.isLoading.collect { isLoading ->
                 if (isLoading) {
                     binding.pbItemInfo.visibility = View.VISIBLE
-                    binding.artPreview.visibility = View.GONE
+                    binding.mythPreview.visibility = View.GONE
                 } else {
                     binding.pbItemInfo.visibility = View.GONE
-                    binding.artPreview.visibility = View.VISIBLE
+                    binding.mythPreview.visibility = View.VISIBLE
                 }
             }
         }
@@ -66,9 +66,9 @@ class ArtFragment : Fragment() {
     private fun initUIState() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                artViewModel.artItem.collect { artItem ->
-                    artItem?.let {
-                        viewHolder.renderArt(it){ }
+                mythViewModel.mythItem.collect { mythItem ->
+                    mythItem?.let {
+                        viewHolder.renderMyth(it){ }
                     }
                 }
             }

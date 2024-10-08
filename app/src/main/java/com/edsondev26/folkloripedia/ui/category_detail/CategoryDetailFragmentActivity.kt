@@ -42,6 +42,7 @@ class CategoryDetailFragmentActivity : AppCompatActivity() {
             "DA" -> navigateToFragment<DanceFragment>(itemId)
             "AR" -> navigateToFragment<ArtFragment>(itemId)
             "MU" -> navigateToFragment<MusicFragment>(itemId)
+            "MY" -> navigateToFragment<MythFragment>(itemId)
             else -> throw IllegalArgumentException("Unknown category type")
         }
     }

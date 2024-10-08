@@ -9,6 +9,7 @@ import com.edsondev26.folkloripedia.domain.model.ArticleModel.*
 import com.edsondev26.folkloripedia.domain.model.CategoryItemModel
 import com.edsondev26.folkloripedia.domain.model.DanceDetailModel
 import com.edsondev26.folkloripedia.domain.model.MusicDetailModel
+import com.edsondev26.folkloripedia.domain.model.MythDetailModel
 import com.edsondev26.folkloripedia.utils.LanguageUtils
 import com.google.firebase.firestore.FirebaseFirestore
 import dagger.hilt.android.qualifiers.ApplicationContext
@@ -157,7 +158,7 @@ class CategoryRepositoryImpl @Inject constructor(
                     material = documentSnapshot.getString("Material_$currentLanguage") ?: ""
                 }
 
-                val artItem = MusicDetailModel(
+                val musicItem = MusicDetailModel(
                     id,
                     name,
                     category,
@@ -167,7 +168,43 @@ class CategoryRepositoryImpl @Inject constructor(
                     img,
                     sound
                 )
-                emit(artItem)
+                emit(musicItem)
+            } else {
+                emit(null)
+            }
+        } catch (e: Exception) {
+            emit(null)
+        }
+    }
+
+    override fun getMythByID(documentId: String): Flow<MythDetailModel?> = flow {
+        try {
+            val currentLanguage = getCurrentLanguage()
+
+            val documentSnapshot = firestore.collection("Myths")
+                .document(documentId)
+                .get()
+                .await()
+
+            if (documentSnapshot.exists()) {
+                val id = documentSnapshot.id
+                val name = documentSnapshot.getString("Name") ?: ""
+                val origin = documentSnapshot.getString("Origin") ?: ""
+                var tale = documentSnapshot.getString("Tale") ?: ""
+                val img = documentSnapshot.getString("Image") ?: ""
+
+                if (currentLanguage !== "es") {
+                    tale = documentSnapshot.getString("Tale_$currentLanguage") ?: ""
+                }
+
+                val mythItem = MythDetailModel(
+                    id,
+                    name,
+                    origin,
+                    tale,
+                    img,
+                )
+                emit(mythItem)
             } else {
                 emit(null)
             }
@@ -194,7 +231,7 @@ class CategoryRepositoryImpl @Inject constructor(
                 return "Author"
             }
             Myths -> {
-                return "Name"
+                return "Origin"
             }
             null -> {
                 return ""

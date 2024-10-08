@@ -15,6 +15,6 @@ class MusicDetailFragmentViewHolder(view: View) : RecyclerView.ViewHolder(view) 
         bindingArt.tvMusicOrigin.text = musicInfo.origin
         bindingArt.tvMusicCategory.text = musicInfo.category
         bindingArt.tvMusicMaterial.text = musicInfo.material
-        bindingArt.tvDanceDescription.text = musicInfo.description
+        bindingArt.tvDanceDescription.text = musicInfo.description.replace("||", "\n\n")
     }
 }
