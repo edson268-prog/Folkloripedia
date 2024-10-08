@@ -28,4 +28,8 @@
     <string name="material">Material:</string>
     <string name="origin">Origen:</string>
     <string name="category">Categoría:</string>
+
+    <!--    Games -->
+    <string name="curiosities_roulette">Ruleta de Curiosidades</string>
+    <string name="Quiz">Cuestionario de contenido</string>
 </resources>

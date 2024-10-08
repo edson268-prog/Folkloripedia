@@ -14,7 +14,11 @@
         android:id="@+id/gamesFragment"
         android:name="com.edsondev26.folkloripedia.ui.games.GamesFragment"
         android:label="fragment_games"
-        tools:layout="@layout/fragment_games" />
+        tools:layout="@layout/fragment_games" >
+        <action
+            android:id="@+id/action_gamesFragment_to_rouletteActivity"
+            app:destination="@id/rouletteActivity" />
+    </fragment>
     <fragment
         android:id="@+id/eventsFragment"
         android:name="com.edsondev26.folkloripedia.ui.events.EventsFragment"
@@ -48,4 +52,24 @@
         android:name="com.edsondev26.folkloripedia.ui.category_detail.DanceFragment"
         android:label="fragment_dance"
         tools:layout="@layout/fragment_dance" />
+    <fragment
+        android:id="@+id/musicFragment"
+        android:name="com.edsondev26.folkloripedia.ui.category_detail.MusicFragment"
+        android:label="fragment_music"
+        tools:layout="@layout/fragment_music" />
+    <fragment
+        android:id="@+id/mythFragment"
+        android:name="com.edsondev26.folkloripedia.ui.category_detail.MythFragment"
+        android:label="fragment_myth"
+        tools:layout="@layout/fragment_myth" />
+    <activity
+        android:id="@+id/categoryDetailFragmentActivity"
+        android:name="com.edsondev26.folkloripedia.ui.category_detail.CategoryDetailFragmentActivity"
+        android:label="activity_category_detail_fragment"
+        tools:layout="@layout/activity_category_detail_fragment" />
+    <activity
+        android:id="@+id/rouletteActivity"
+        android:name="com.edsondev26.folkloripedia.ui.games.RouletteActivity"
+        android:label="activity_roulette"
+        tools:layout="@layout/activity_roulette" />
 </navigation>

@@ -15,8 +15,6 @@ import dagger.hilt.android.AndroidEntryPoint
 class CategoryDetailFragmentActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCategoryDetailFragmentBinding
 
-    private val viewModel: CategoryDetailFragmentViewModel by viewModels()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()

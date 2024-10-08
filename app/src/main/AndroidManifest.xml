@@ -16,6 +16,9 @@
         android:theme="@style/Theme.Folkloripedia"
         tools:targetApi="31">
         <activity
+            android:name=".ui.games.RouletteActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.category_detail.CategoryDetailFragmentActivity"
             android:exported="false" />
         <activity
