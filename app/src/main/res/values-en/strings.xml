@@ -33,4 +33,8 @@
     <string name="origin">Origin:</string>
     <string name="category">Category:</string>
 
+    <!--    Games -->
+    <string name="curiosities_roulette">Curiosities Roulette</string>
+    <string name="Quiz">Content Quiz</string>
+
 </resources>

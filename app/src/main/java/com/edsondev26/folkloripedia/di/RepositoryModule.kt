@@ -1,7 +1,9 @@
 package com.edsondev26.folkloripedia.di
 
 import com.edsondev26.folkloripedia.data.CategoryRepositoryImpl
+import com.edsondev26.folkloripedia.data.GameRepositoryImpl
 import com.edsondev26.folkloripedia.domain.CategoryRepository
+import com.edsondev26.folkloripedia.domain.GameRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -16,4 +18,10 @@ abstract class RepositoryModule {
     abstract fun bindCategoryRepository(
         categoryRepositoryImpl: CategoryRepositoryImpl,
     ): CategoryRepository
+
+    @Binds
+    @Singleton
+    abstract fun bindGameRepository(
+        gameRepositoryImpl: GameRepositoryImpl,
+    ): GameRepository
 }

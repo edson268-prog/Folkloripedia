@@ -1,22 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
     tools:context=".ui.games.GamesFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:textSize="50sp"
-        android:text="GAMES" />
-
-    <Button
-        android:id="@+id/btn_exception"
-        android:layout_width="wrap_content"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/mbRouletteGame"
+        style="@style/GameButton"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="EXCEPTION"/>
+        android:text="@string/curiosities_roulette"
+        android:textColor="@color/primary"
+        app:icon="@drawable/ic_rotate_right"
+        app:layout_constraintBottom_toTopOf="@+id/mbQuizGame"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.5" />
 
-</FrameLayout>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/mbQuizGame"
+        style="@style/GameButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/Quiz"
+        android:textColor="@color/primary"
+        app:icon="@drawable/ic_rotate_right"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mbRouletteGame"
+        app:layout_constraintWidth_percent="0.5"
+        app:strokeColor="@color/black"
+        app:strokeWidth="1dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
