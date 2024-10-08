@@ -3,6 +3,7 @@ import com.edsondev26.folkloripedia.domain.model.ArtDetailModel
 import com.edsondev26.folkloripedia.domain.model.CategoryItemModel
 import com.edsondev26.folkloripedia.domain.model.DanceDetailModel
 import com.edsondev26.folkloripedia.domain.model.MusicDetailModel
+import com.edsondev26.folkloripedia.domain.model.MythDetailModel
 import kotlinx.coroutines.flow.Flow
 
 interface CategoryRepository {
@@ -13,4 +14,6 @@ interface CategoryRepository {
     fun getArtByID(documentId: String): Flow<ArtDetailModel?>
 
     fun getMusicByID(documentId: String): Flow<MusicDetailModel?>
+
+    fun getMythByID(documentId: String): Flow<MythDetailModel?>
 }
