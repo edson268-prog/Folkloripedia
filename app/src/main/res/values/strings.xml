@@ -32,4 +32,7 @@
     <!--    Games -->
     <string name="curiosities_roulette">Ruleta de Curiosidades</string>
     <string name="Quiz">Cuestionario de contenido</string>
+
+    <!--    Games / Quiz -->
+    <string name="question">Pregunta</string>
 </resources>

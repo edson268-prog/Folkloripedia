@@ -37,4 +37,7 @@
     <string name="curiosities_roulette">Curiosities Roulette</string>
     <string name="Quiz">Content Quiz</string>
 
+    <!--    Games / Quiz -->
+    <string name="question">Question</string>
+
 </resources>
