@@ -45,11 +45,11 @@ class ArtFragment : Fragment() {
     }
 
     private fun initUI() {
+        setVisibility()
         getArtItem()
-        initUIState()
     }
 
-    private fun getArtItem() {
+    private fun setVisibility() {
         lifecycleScope.launch {
             artViewModel.isLoading.collect { isLoading ->
                 if (isLoading) {
@@ -63,7 +63,7 @@ class ArtFragment : Fragment() {
         }
     }
 
-    private fun initUIState() {
+    private fun getArtItem() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 artViewModel.artItem.collect { artItem ->

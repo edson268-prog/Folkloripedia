@@ -54,13 +54,13 @@ class DanceFragment : Fragment() {
     }
 
     private fun initUI() {
+        setVisibility()
         getDanceItem()
         initListeners()
-        initUIState()
     }
 
 
-    private fun getDanceItem() {
+    private fun setVisibility() {
         lifecycleScope.launch {
             danceViewModel.isLoading.collect { isLoading ->
                 if (isLoading) {
@@ -80,7 +80,7 @@ class DanceFragment : Fragment() {
         }
     }
 
-    private fun initUIState() {
+    private fun getDanceItem() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 danceViewModel.danceItem.collect { danceItem ->

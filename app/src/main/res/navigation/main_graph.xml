@@ -80,4 +80,9 @@
         android:name="com.edsondev26.folkloripedia.ui.games.QuizActivity"
         android:label="activity_quiz"
         tools:layout="@layout/activity_quiz" />
+    <fragment
+        android:id="@+id/suggestionsFragment"
+        android:name="com.edsondev26.folkloripedia.ui.suggestions.SuggestionsFragment"
+        android:label="fragment_suggestions"
+        tools:layout="@layout/fragment_suggestions" />
 </navigation>

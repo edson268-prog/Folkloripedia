@@ -15,15 +15,15 @@ class QuizViewModel @Inject constructor(private val gameRepository: GameReposito
     private val _quizList = MutableStateFlow<List<QuizModel>>(emptyList())
     val quizList: MutableStateFlow<List<QuizModel>> get() = _quizList
 
-//    private var _isLoading = MutableStateFlow(true)
-//    val isLoading: StateFlow<Boolean> = _isLoading
+    private var _isLoading = MutableStateFlow(true)
+    val isLoading: MutableStateFlow<Boolean> = _isLoading
 
     fun fetchQuiz(questions: Number) {
-//        _isLoading.value = true
+        _isLoading.value = true
         viewModelScope.launch {
             gameRepository.getQuizItems(questions).collect { items ->
                 _quizList.value = items
-//                _isLoading.value = false
+                _isLoading.value = false
             }
         }
     }

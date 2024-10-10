@@ -12,6 +12,8 @@
     <string name="games">Juegos</string>
     <string name="about">Acerca de</string>
     <string name="events">Eventos</string>
+    <string name="suggestions">Suggestions</string>
+
     <!--    Home/Articles -->
     <string name="dance">Danzas</string>
     <string name="music">Música</string>
@@ -24,6 +26,7 @@
     <string name="vestment">Vestimenta:</string>
     <string name="year">Año:</string>
     <string name="close">Cerrar</string>
+    <string name="retry">Reintentar</string>
     <string name="author">Autor:</string>
     <string name="material">Material:</string>
     <string name="origin">Origen:</string>
@@ -35,4 +38,5 @@
 
     <!--    Games / Quiz -->
     <string name="question">Pregunta</string>
+
 </resources>
