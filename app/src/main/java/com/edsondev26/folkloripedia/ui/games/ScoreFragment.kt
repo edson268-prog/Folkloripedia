@@ -5,8 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.addCallback
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
+import com.edsondev26.folkloripedia.R
 import com.edsondev26.folkloripedia.databinding.FragmentScoreBinding
 
 class ScoreFragment : Fragment() {
@@ -41,7 +43,26 @@ class ScoreFragment : Fragment() {
     private fun initUI() {
         var score = args.score
         val finalScore = String.format("%.2f", score)
-        binding.tvScore.text = "Score: $finalScore %"
+        binding.tvScore.text = finalScore
+        when(score){
+            in 0.00..50.00 ->{
+                binding.tvResult.text = getString(R.string.result_low)
+                binding.tvDescription.text = getString(R.string.message_low)
+            }
+            in 50.01..80.00 ->{
+                binding.tvResult.text = getString(R.string.result_good)
+                binding.tvDescription.text = getString(R.string.message_good)
+            }
+            in 80.01..100.00 ->{
+                binding.tvResult.text = getString(R.string.result_excellent)
+                binding.tvDescription.text = getString(R.string.message_excellent)
+            }
+            else -> {
+                binding.tvScore.text = getString(R.string.error)
+                binding.tvResult.text = getString(R.string.error)
+                binding.tvDescription.text = getString(R.string.error)
+            }
+        }
     }
 
     private fun closeQuiz() {

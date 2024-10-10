@@ -3,7 +3,6 @@ package com.edsondev26.folkloripedia.data
 import android.content.Context
 import android.util.Log
 import com.edsondev26.folkloripedia.domain.GameRepository
-import com.edsondev26.folkloripedia.domain.model.CategoryItemModel
 import com.edsondev26.folkloripedia.domain.model.CuriosityModel
 import com.edsondev26.folkloripedia.domain.model.QuizModel
 import com.edsondev26.folkloripedia.utils.LanguageUtils
@@ -80,7 +79,10 @@ class GameRepositoryImpl @Inject constructor(
                 Log.d("FirebaseFirestore", "Question: $question, img: $img")
                 QuizModel(id, question, answerA, answerB, answerC, rightAnswer, img, sound)
             }
-            emit(questionsList)
+
+            val randomQuestions = questionsList.shuffled().take(questions.toInt())
+
+            emit(randomQuestions)
 
         } catch (e: Exception) {
             emit(emptyList())

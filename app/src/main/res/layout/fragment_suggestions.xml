@@ -1,16 +1,56 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.suggestions.SuggestionsFragment">
+    android:padding="16dp">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/tvSuggestionMessage"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:textSize="28sp"
-        android:text="@string/suggestions" />
+        android:layout_height="wrap_content"
+        android:text="@string/suggestion_message"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@id/etName"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <EditText
+        android:id="@+id/etName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/suggestion_name"
+        android:maxLength="50"
+        app:layout_constraintBottom_toTopOf="@id/etEmail"
+        app:layout_constraintTop_toBottomOf="@+id/tvSuggestionMessage" />
+
+    <EditText
+        android:id="@+id/etEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/suggestion_email"
+        android:inputType="textEmailAddress"
+        android:maxLength="50"
+        app:layout_constraintBottom_toTopOf="@+id/etSuggestion"
+        app:layout_constraintTop_toBottomOf="@+id/etName" />
+
+    <EditText
+        android:id="@+id/etSuggestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/suggestion"
+        android:inputType="textMultiLine"
+        android:minLines="4"
+        android:maxLength="250"
+        app:layout_constraintBottom_toTopOf="@+id/btnSendSuggestion"
+        app:layout_constraintTop_toBottomOf="@+id/etEmail" />
+
+    <Button
+        android:id="@+id/btnSendSuggestion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/suggestion_send"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etSuggestion" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

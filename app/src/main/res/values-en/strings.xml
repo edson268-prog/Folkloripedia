@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Folkloripedia</string>
+    <string name="error">Error</string>
+    <string name="longExample">This is an example content to fill out a field and perform the corresponding test</string>
+    <string name="shortExample">Example</string>
+    <string name="numberExample">100</string>
 
     <!--    languages-->
     <string-array name="languages">
@@ -41,5 +45,23 @@
 
     <!--    Games / Quiz -->
     <string name="question">Question</string>
+    <string name="result">Your Result</string>
+    <string name="result_low">You can improve!!</string>
+    <string name="message_low">Take a look around the application and try again, you will succeed</string>
+    <string name="result_good">You have done well!!</string>
+    <string name="message_good">You have assimilated a good percentage of the content, keep it up</string>
+    <string name="result_excellent">You are dominating!!</string>
+    <string name="message_excellent">The content is already short for you, don\'t worry, we will soon make more material available to you</string>
+
+    <!--    Suggestions -->
+    <string name="suggestion_message">As a novice developer, I have created this application with dedication and enthusiasm. However, in this intense process, I may have missed some details. Therefore, your help is essential. \n\nIn this suggestions section, I would love to hear your opinion about the application. Whether you have ideas to improve the content, have noticed any errors, or simply want to share your experience, your comments are welcome. \n\nYour contribution will not only improve this application dedicated to the Bolivian population and potentially users around the world, but it will also give you the opportunity to be mentioned within the app if your contribution is implemented. \n\nThank you for downloading and enjoying this work. Your feedback is crucial for its continuous development and improvement.</string>
+    <string name="val_suggestion_form">Fill out all fields to continue</string>
+    <string name="suggestion_saved">Your suggestion was registered correctly, thank you for your opinion</string>
+    <string name="val_suggestion_time">You can only submit one suggestion every 24 hours</string>
+    <string name="suggestion_name">Name</string>
+    <string name="suggestion_email">Email</string>
+    <string name="suggestion">Suggestion</string>
+    <string name="suggestion_send">Send Suggestion</string>
+    <string name="val_suggestion_email">Enter a valid email</string>
 
 </resources>
