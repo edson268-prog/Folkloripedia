@@ -18,6 +18,9 @@
         <action
             android:id="@+id/action_gamesFragment_to_rouletteActivity"
             app:destination="@id/rouletteActivity" />
+        <action
+            android:id="@+id/action_gamesFragment_to_quizActivity"
+            app:destination="@id/quizActivity" />
     </fragment>
     <fragment
         android:id="@+id/eventsFragment"
@@ -72,4 +75,14 @@
         android:name="com.edsondev26.folkloripedia.ui.games.RouletteActivity"
         android:label="activity_roulette"
         tools:layout="@layout/activity_roulette" />
+    <activity
+        android:id="@+id/quizActivity"
+        android:name="com.edsondev26.folkloripedia.ui.games.QuizActivity"
+        android:label="activity_quiz"
+        tools:layout="@layout/activity_quiz" />
+    <fragment
+        android:id="@+id/suggestionsFragment"
+        android:name="com.edsondev26.folkloripedia.ui.suggestions.SuggestionsFragment"
+        android:label="fragment_suggestions"
+        tools:layout="@layout/fragment_suggestions" />
 </navigation>

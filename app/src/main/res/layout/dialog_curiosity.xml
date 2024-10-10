@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
@@ -13,7 +13,8 @@
         android:id="@+id/previewCuriosity"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone">
+        android:visibility="gone"
+        tools:visibility="visible">
 
         <ImageView
             android:id="@+id/ivCuriosity"
@@ -31,23 +32,42 @@
             android:layout_height="0dp"
             android:layout_margin="32dp"
             android:gravity="center"
-            tools:text="HERE THE CURIOSITY WILL BE DISPLAY"
-            app:layout_constraintBottom_toTopOf="@id/btnCloseCuriosity"
+            app:layout_constraintBottom_toTopOf="@id/btnArea"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ivCuriosity" />
+            app:layout_constraintTop_toBottomOf="@+id/ivCuriosity"
+            tools:text="HERE THE CURIOSITY WILL BE DISPLAY" />
 
-        <Button
-            android:id="@+id/btnCloseCuriosity"
+        <LinearLayout
+            android:id="@+id/btnArea"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/primary"
-            android:text="@string/close"
-            android:layout_margin="16dp"
+            android:gravity="center"
+            android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvDescription" />
+            app:layout_constraintTop_toBottomOf="@+id/tvDescription">
+
+            <Button
+                android:id="@+id/btnRetryCuriosity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:backgroundTint="@color/primary"
+                android:text="@string/retry"
+                android:textAllCaps="true" />
+
+            <Button
+                android:id="@+id/btnCloseCuriosity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:backgroundTint="@color/primary"
+                android:text="@string/close"
+                android:textAllCaps="true" />
+
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

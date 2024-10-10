@@ -51,13 +51,13 @@ class MusicFragment : Fragment() {
     }
 
     private fun initUI() {
+        setVisibility()
         getMusicItem()
-        initUIState()
         initListeners()
     }
 
 
-    private fun getMusicItem() {
+    private fun setVisibility() {
         lifecycleScope.launch {
             musicViewModel.isLoading.collect { isLoading ->
                 if (isLoading) {
@@ -109,7 +109,7 @@ class MusicFragment : Fragment() {
         }
     }
 
-    private fun initUIState() {
+    private fun getMusicItem() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 musicViewModel.musicItem.collect { musicItem ->

@@ -35,8 +35,13 @@ class GamesFragment : Fragment() {
     private fun initListeners() {
         binding.mbRouletteGame.setOnClickListener {
             findNavController().navigate(
-                // HomeFragmentDirections was generated automatically -- Add argument on categoryDetailActivity  main_graph
                 GamesFragmentDirections.actionGamesFragmentToRouletteActivity()
+            )
+        }
+
+        binding.mbQuizGame.setOnClickListener {
+            findNavController().navigate(
+                GamesFragmentDirections.actionGamesFragmentToQuizActivity()
             )
         }
     }

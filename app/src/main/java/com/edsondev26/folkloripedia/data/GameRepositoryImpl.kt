@@ -5,7 +5,7 @@ import android.util.Log
 import com.edsondev26.folkloripedia.domain.GameRepository
 import com.edsondev26.folkloripedia.domain.model.CategoryItemModel
 import com.edsondev26.folkloripedia.domain.model.CuriosityModel
-import com.edsondev26.folkloripedia.domain.model.DanceDetailModel
+import com.edsondev26.folkloripedia.domain.model.QuizModel
 import com.edsondev26.folkloripedia.utils.LanguageUtils
 import com.google.firebase.firestore.FirebaseFirestore
 import dagger.hilt.android.qualifiers.ApplicationContext
@@ -53,6 +53,37 @@ class GameRepositoryImpl @Inject constructor(
 
         } catch (e: Exception) {
             emit(null)
+        }
+    }
+
+    override fun getQuizItems(questions: Number): Flow<List<QuizModel>> = flow {
+        try {
+            val currentLanguage = getCurrentLanguage()
+
+            val result = firestore.collection("Quiz")
+                .get()
+                .await()
+
+            val questionsList = result.map { document ->
+                val id = document.id
+                var question = document.getString("Question") ?: ""
+                val answerA = document.getString("Answer_A") ?: ""
+                val answerB = document.getString("Answer_B") ?: ""
+                val answerC = document.getString("Answer_C") ?: ""
+                val rightAnswer = document.getString("Right_Answer") ?: ""
+                val img = document.getString("Image") ?: ""
+                val sound = document.getString("Sound") ?: ""
+
+                if (currentLanguage !== "es") {
+                    question = document.getString("Question_$currentLanguage") ?: ""
+                }
+                Log.d("FirebaseFirestore", "Question: $question, img: $img")
+                QuizModel(id, question, answerA, answerB, answerC, rightAnswer, img, sound)
+            }
+            emit(questionsList)
+
+        } catch (e: Exception) {
+            emit(emptyList())
         }
     }
 }

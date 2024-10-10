@@ -33,7 +33,7 @@ class CategoryRepositoryImpl @Inject constructor(
                 .get()
                 .await()
 
-            val danceList = result.map { document ->
+            val itemsList = result.map { document ->
                 val id = document.id
                 val img = document.getString("Image") ?: ""
                 val name = document.getString("Name") ?: ""
@@ -44,7 +44,7 @@ class CategoryRepositoryImpl @Inject constructor(
 //                Log.d("FirebaseFirestore", "Nombre: $name, img: $img")
                 CategoryItemModel(id, name, type, img, info)
             }
-            emit(danceList)
+            emit(itemsList)
 
         } catch (e: Exception) {
             emit(emptyList())

@@ -44,6 +44,7 @@ class RouletteActivity : AppCompatActivity() {
     private val rouletteViewModel by viewModels<RouletteViewModel>()
     private var isAnimationInProgress = false
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -169,7 +170,14 @@ class RouletteActivity : AppCompatActivity() {
         val btnClose = dialogCuriosity.findViewById<Button>(R.id.btnCloseCuriosity)
         btnClose.setOnClickListener {
             dialogCuriosity.dismiss()
+            finish()
+        }
+
+        val btnRetry = dialogCuriosity.findViewById<Button>(R.id.btnRetryCuriosity)
+        btnRetry.setOnClickListener {
+            dialogCuriosity.dismiss()
             btnClose.visibility = View.GONE
+            recreate()
         }
 
         dialogCuriosity.window?.let { window ->
@@ -178,6 +186,9 @@ class RouletteActivity : AppCompatActivity() {
             val height = (displayMetrics.heightPixels * 0.8).toInt()
             window.setLayout(width, height)
         }
+
+        dialogCuriosity.setCancelable(false)
+        dialogCuriosity.setCanceledOnTouchOutside(false)
 
         return dialogCuriosity
     }

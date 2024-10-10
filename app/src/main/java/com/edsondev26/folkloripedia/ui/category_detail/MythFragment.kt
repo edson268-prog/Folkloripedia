@@ -45,11 +45,11 @@ class MythFragment : Fragment() {
     }
 
     private fun initUI() {
+        setVisibility()
         getMythItem()
-        initUIState()
     }
 
-    private fun getMythItem() {
+    private fun setVisibility() {
         lifecycleScope.launch {
             mythViewModel.isLoading.collect { isLoading ->
                 if (isLoading) {
@@ -63,7 +63,7 @@ class MythFragment : Fragment() {
         }
     }
 
-    private fun initUIState() {
+    private fun getMythItem() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 mythViewModel.mythItem.collect { mythItem ->

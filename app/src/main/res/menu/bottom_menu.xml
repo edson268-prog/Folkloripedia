@@ -12,4 +12,8 @@
         android:id="@+id/gamesFragment"
         android:icon="@drawable/ic_games"
         android:title="@string/games" />
+    <item
+        android:id="@+id/suggestionsFragment"
+        android:icon="@drawable/ic_contact"
+        android:title="@string/suggestions" />
 </menu>
