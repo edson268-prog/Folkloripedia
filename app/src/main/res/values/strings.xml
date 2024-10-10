@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">Folkloripedia</string>
+    <string name="error">Error</string>
+    <string name="longExample">Este es un contenido de ejemplo para llenar un campo y realizar la prueba correspondiente</string>
+    <string name="shortExample">Ejemplo</string>
+    <string name="numberExample">100</string>
 
     <!--    languages-->
     <string-array name="languages">
@@ -38,5 +42,19 @@
 
     <!--    Games / Quiz -->
     <string name="question">Pregunta</string>
+    <string name="result">Tu resultado</string>
+    <string name="result_low">Puedes mejorar!!</string>
+    <string name="message_low">Date una vuelta por la aplicación e intenta nuevamente, lo lograrás</string>
+    <string name="result_good">Lo has hecho bien!!</string>
+    <string name="message_good">Has asimilado un buen porcentaje del contenido, sigue así</string>
+    <string name="result_excellent">Estas dominando!!</string>
+    <string name="message_excellent">El contenido ya se queda corto para ti, no te preocupes, pronto pondremos más material a tu disposición</string>
+
+    <!--    Suggestions -->
+    <string name="suggestion_message">Como desarrollador novato, he creado esta aplicación con dedicación y entusiasmo. Sin embargo, en este proceso intenso, es posible que se me hayan escapado algunos detalles. Por eso, tu ayuda es fundamental. \n\nEn esta sección de sugerencias, me encantaría conocer tu opinión sobre la aplicación. Ya sea que tengas ideas para mejorar el contenido, hayas notado algún error, o simplemente quieras compartir tu experiencia, tus comentarios son bienvenidos. \n\nTu contribución no solo mejorará esta aplicación dedicada a la población boliviana y potencialmente a usuarios de todo el mundo, sino que también te dará la oportunidad de ser mencionado dentro de la app si tu aporte es implementado. \n\nGracias por descargar y disfrutar de este trabajo. Tu feedback es crucial para su continuo desarrollo y mejora.</string>
+    <string name="val_suggestion_form">Llene todos los campos para continuar</string>
+    <string name="suggestion_saved">Su sugerencia fue registrada correctamente, gracias por su opinión</string>
+    <string name="val_suggestion_time">Solo puedes enviar una sugerencia cada 24 horas</string>
+
 
 </resources>

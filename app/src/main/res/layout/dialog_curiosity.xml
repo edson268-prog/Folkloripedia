@@ -51,18 +51,20 @@
 
             <Button
                 android:id="@+id/btnRetryCuriosity"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp"
+                android:layout_margin="8dp"
                 android:backgroundTint="@color/primary"
                 android:text="@string/retry"
                 android:textAllCaps="true" />
 
             <Button
                 android:id="@+id/btnCloseCuriosity"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp"
+                android:layout_margin="8dp"
                 android:backgroundTint="@color/primary"
                 android:text="@string/close"
                 android:textAllCaps="true" />
