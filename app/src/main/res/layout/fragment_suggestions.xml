@@ -8,43 +8,49 @@
         android:id="@+id/tvSuggestionMessage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="@string/suggestion_message"
         android:textSize="16sp"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/etName"
-        android:text="@string/suggestion_message"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/etName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/tvSuggestionMessage"
+        android:hint="@string/suggestion_name"
+        android:maxLength="50"
         app:layout_constraintBottom_toTopOf="@id/etEmail"
-        android:hint="Nombre" />
+        app:layout_constraintTop_toBottomOf="@+id/tvSuggestionMessage" />
 
     <EditText
         android:id="@+id/etEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Correo"
-        app:layout_constraintTop_toBottomOf="@+id/etName"
+        android:hint="@string/suggestion_email"
+        android:inputType="textEmailAddress"
+        android:maxLength="50"
         app:layout_constraintBottom_toTopOf="@+id/etSuggestion"
-        android:inputType="textEmailAddress" />
+        app:layout_constraintTop_toBottomOf="@+id/etName" />
 
     <EditText
         android:id="@+id/etSuggestion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/etEmail"
-        app:layout_constraintBottom_toTopOf="@+id/btnSendSuggestion"
-        android:hint="Sugerencia"
+        android:hint="@string/suggestion"
         android:inputType="textMultiLine"
-        android:minLines="4" />
+        android:minLines="4"
+        android:maxLength="250"
+        app:layout_constraintBottom_toTopOf="@+id/btnSendSuggestion"
+        app:layout_constraintTop_toBottomOf="@+id/etEmail" />
 
     <Button
         android:id="@+id/btnSendSuggestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="@string/suggestion_send"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:text="Enviar sugerencia" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etSuggestion" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

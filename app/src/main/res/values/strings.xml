@@ -16,7 +16,7 @@
     <string name="games">Juegos</string>
     <string name="about">Acerca de</string>
     <string name="events">Eventos</string>
-    <string name="suggestions">Suggestions</string>
+    <string name="suggestions">Sugerencias</string>
 
     <!--    Home/Articles -->
     <string name="dance">Danzas</string>
@@ -55,6 +55,11 @@
     <string name="val_suggestion_form">Llene todos los campos para continuar</string>
     <string name="suggestion_saved">Su sugerencia fue registrada correctamente, gracias por su opinión</string>
     <string name="val_suggestion_time">Solo puedes enviar una sugerencia cada 24 horas</string>
+    <string name="suggestion_name">Nombre</string>
+    <string name="suggestion_email">Correo electrónico</string>
+    <string name="suggestion">Sugerencia</string>
+    <string name="suggestion_send">Enviar sugerencia</string>
+    <string name="val_suggestion_email">Introduzca un correo válido</string>
 
 
 </resources>

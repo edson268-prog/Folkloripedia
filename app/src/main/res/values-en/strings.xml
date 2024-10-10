@@ -58,5 +58,10 @@
     <string name="val_suggestion_form">Fill out all fields to continue</string>
     <string name="suggestion_saved">Your suggestion was registered correctly, thank you for your opinion</string>
     <string name="val_suggestion_time">You can only submit one suggestion every 24 hours</string>
+    <string name="suggestion_name">Name</string>
+    <string name="suggestion_email">Email</string>
+    <string name="suggestion">Suggestion</string>
+    <string name="suggestion_send">Send Suggestion</string>
+    <string name="val_suggestion_email">Enter a valid email</string>
 
 </resources>
