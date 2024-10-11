@@ -36,14 +36,18 @@ class EventRepositoryImpl @Inject constructor(
                 var description = document.getString("Description") ?: ""
                 val img = document.getString("Image") ?: ""
                 val month = document.getString("Month") ?: ""
+                val day = document.getString("Day") ?: ""
 
                 if (currentLanguage !== "es") {
                     name = document.getString("Name_$currentLanguage") ?: ""
                     description = document.getString("Description_$currentLanguage") ?: ""
                 }
+
+                val dayInt = day.toIntOrNull() ?: 0
+
                 Log.d("FirebaseFirestore", "Name: $name, img: $img")
-                EventModel(name, description, img, month)
-            }
+                EventModel(name, description, img, month, dayInt)
+            }.sortedBy { it.day }
             emit(eventsList)
 
         } catch (e: Exception) {

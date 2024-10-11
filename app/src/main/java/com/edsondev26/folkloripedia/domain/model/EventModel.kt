@@ -5,4 +5,5 @@ data class EventModel (
     val description: String,
     val img: String,
     val month: String,
+    val day:Int
 )

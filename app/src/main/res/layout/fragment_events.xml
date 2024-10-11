@@ -11,10 +11,9 @@
         style="@style/ModernSpinnerStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/spinner_dropdown_arrow"
         android:entries="@array/months_array"
-        app:layout_constraintBottom_toTopOf="@+id/rvListedEvents"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -22,12 +21,13 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvListedEvents"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/spMonths" />
+        app:layout_constraintTop_toBottomOf="@id/spMonths"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
     <ProgressBar
         android:id="@+id/pbItemInfo"
