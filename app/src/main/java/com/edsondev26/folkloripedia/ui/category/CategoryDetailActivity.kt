@@ -59,6 +59,7 @@ class CategoryDetailActivity : AppCompatActivity() {
     }
 
     private fun initUI() {
+        binding.titleToolbar.tvMainTitle.text = getString(R.string.articles)
         initListedArticles(args.type.toString())
         initUIState()
     }

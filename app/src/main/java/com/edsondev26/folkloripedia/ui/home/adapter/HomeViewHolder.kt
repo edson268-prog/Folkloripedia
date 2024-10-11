@@ -16,7 +16,6 @@ class HomeViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val context = binding.tvArticleName.context
         binding.ivArticle.setImageResource(articleInfo.img)
         binding.tvArticleName.text = context.getString(articleInfo.name)
-        binding.tvArticleCount.text = "Este articulo contiene ${context.getString(articleInfo.name)} elementos"
 
         binding.ArticleInfo.setOnClickListener {
             startClickAnimation(
