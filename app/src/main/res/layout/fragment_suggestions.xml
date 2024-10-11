@@ -8,6 +8,8 @@
         android:id="@+id/tvSuggestionMessage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/textview_suggestion_message"
+        android:padding="8dp"
         android:text="@string/suggestion_message"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@id/etName"
@@ -38,13 +40,14 @@
         android:layout_height="wrap_content"
         android:hint="@string/suggestion"
         android:inputType="textMultiLine"
-        android:minLines="4"
         android:maxLength="250"
+        android:minLines="4"
         app:layout_constraintBottom_toTopOf="@+id/btnSendSuggestion"
         app:layout_constraintTop_toBottomOf="@+id/etEmail" />
 
     <Button
         android:id="@+id/btnSendSuggestion"
+        style="@style/MainButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/suggestion_send"

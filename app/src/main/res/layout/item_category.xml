@@ -3,22 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/articleListed"
-    android:background="@drawable/item_category_shape"
-    android:layout_margin="16dp"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    android:background="@drawable/item_category_shape">
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/ivListedArticle"
         android:layout_width="0dp"
-        android:layout_height="100dp"
+        android:layout_height="125dp"
         android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintWidth_percent="0.5"
-        tools:src="@drawable/banner1_transparency"
-        app:shapeAppearanceOverlay="@style/RoundedImageView"/>
+        app:shapeAppearanceOverlay="@style/RoundedImageView"
+        tools:src="@drawable/banner1_transparency" />
 
     <LinearLayout
         android:id="@+id/textContainer"
@@ -26,22 +26,24 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="10dp"
-        app:layout_constraintStart_toEndOf="@id/ivListedArticle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/ivListedArticle"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintWidth_percent="0.5">
 
         <TextView
             android:id="@+id/tvListedName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="16sp"
             tools:text="Name" />
 
         <TextView
             android:id="@+id/tvInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="16sp"
             tools:text="Origin" />
 
     </LinearLayout>

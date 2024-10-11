@@ -14,10 +14,10 @@ import javax.inject.Inject
 class CategoryDetailViewModel @Inject constructor(private val categoryRepository: CategoryRepository):
     ViewModel() {
     private var _categoryItems = MutableStateFlow<List<CategoryItemModel>>(emptyList())
-    val categoryItems: StateFlow<List<CategoryItemModel>> = _categoryItems
+    val categoryItems: MutableStateFlow<List<CategoryItemModel>> = _categoryItems
 
     private var _isLoading = MutableStateFlow(true)
-    val isLoading: StateFlow<Boolean> = _isLoading
+    val isLoading: MutableStateFlow<Boolean> = _isLoading
 
     fun fetchCategoryItems(collectionName: String) {
         _isLoading.value = true
