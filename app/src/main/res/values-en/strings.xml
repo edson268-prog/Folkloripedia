@@ -84,4 +84,10 @@
     <!--    Events-->
     <string name="day">Day</string>
 
+    <!--    Populate-->
+    <string name="inserts">Insert</string>
+    <string name="insert_events">Register Events</string>
+    <string name="insert_dances">Register Dances</string>
+    <string name="insert_myths">Register Myths</string>
+
 </resources>

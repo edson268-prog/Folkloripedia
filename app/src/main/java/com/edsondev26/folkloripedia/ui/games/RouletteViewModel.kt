@@ -15,15 +15,10 @@ class RouletteViewModel @Inject constructor(private val gameRepository: GameRepo
     private val _curiosityItem = MutableStateFlow<CuriosityModel?>(null)
     val curiosityItem: MutableStateFlow<CuriosityModel?> get() = _curiosityItem
 
-//    private var _isLoading = MutableStateFlow(true)
-//    val isLoading: StateFlow<Boolean> = _isLoading
-
     fun fetchCuriosityById(documentId: String) {
-//        _isLoading.value = true
         viewModelScope.launch {
             gameRepository.getCuriosityItem(documentId).collect { item ->
                 _curiosityItem.value = item
-//                _isLoading.value = false
             }
         }
     }
