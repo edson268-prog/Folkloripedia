@@ -12,14 +12,16 @@
         android:layout_height="0dp"
         app:autoPlay="true"
         app:autoPlayDelay="4000"
+        app:showNavigationButtons="false"
         app:carouselBackground="@color/primary"
-        app:imageScaleType="fitCenter"
+        app:imageScaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_default="percent"
         app:layout_constraintHeight_percent="0.35"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:showBottomShadow="false"
+        android:layout_marginBottom="8dp"
         app:showTopShadow="false" />
 
     <androidx.recyclerview.widget.RecyclerView
