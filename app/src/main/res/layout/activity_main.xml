@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     tools:context=".ui.main.MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -25,22 +26,23 @@
             android:gravity="center"
             android:text="@string/app_name"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/spLanguages"
+            app:layout_constraintEnd_toStartOf="@id/btnLanguages"
             app:layout_constraintHorizontal_weight="0.90"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <Spinner
-            android:id="@+id/spLanguages"
+        <ImageButton
+            android:id="@+id/btnLanguages"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:spinnerMode="dropdown"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_weight="0.10"
             app:layout_constraintStart_toEndOf="@id/tvMainTitle"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/earth_icon"
+            android:scaleType="centerCrop"
+            android:backgroundTint="@color/primaryStrong"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

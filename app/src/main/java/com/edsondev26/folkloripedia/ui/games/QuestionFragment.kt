@@ -25,7 +25,7 @@ class QuestionFragment : Fragment() {
 
     private var questionIndex = 0
     private val userAnswers = mutableListOf<String>()
-    private val questions_amount = 3
+    private val questions_amount = 5
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

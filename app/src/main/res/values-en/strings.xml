@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Folkloripedia</string>
+    <string name="app_name">Folkloripedia Bolivia</string>
     <string name="error">Error</string>
     <string name="longExample">This is an example content to fill out a field and perform the corresponding test</string>
     <string name="shortExample">Example</string>
@@ -12,6 +12,8 @@
         <item>Español</item>
     </string-array>
     <string name="language_icon">Language</string>
+    <string name="spanish">Español</string>
+    <string name="english">English</string>
 
     <!--    months-->
     <string-array name="months_array">
@@ -54,6 +56,7 @@
     <string name="material">Material:</string>
     <string name="origin">Origin:</string>
     <string name="category">Category:</string>
+    <string name="articles">Articles</string>
 
     <!--    Games -->
     <string name="curiosities_roulette">Curiosities Roulette</string>
@@ -70,7 +73,7 @@
     <string name="message_excellent">The content is already short for you, don\'t worry, we will soon make more material available to you</string>
 
     <!--    Suggestions -->
-    <string name="suggestion_message">As a novice developer, I have created this application with dedication and enthusiasm. However, in this intense process, I may have missed some details. Therefore, your help is essential. \n\nIn this suggestions section, I would love to hear your opinion about the application. Whether you have ideas to improve the content, have noticed any errors, or simply want to share your experience, your comments are welcome. \n\nYour contribution will not only improve this application dedicated to the Bolivian population and potentially users around the world, but it will also give you the opportunity to be mentioned within the app if your contribution is implemented. \n\nThank you for downloading and enjoying this work. Your feedback is crucial for its continuous development and improvement.</string>
+    <string name="suggestion_message">As a novice developer, I have created this application with dedication and enthusiasm. However, in this intense process, I may have missed some details. Therefore, your help is essential. \n\nIn this section, I would love to hear your opinion. Ideas, errors or experiences, all your comments are welcome. \n\nYour contribution will improve this application dedicated to the Bolivian population and potentially to users around the world. \n\nThank you for downloading and enjoying this work. Your feedback is crucial for its continuous development and improvement.</string>
     <string name="val_suggestion_form">Fill out all fields to continue</string>
     <string name="suggestion_saved">Your suggestion was registered correctly, thank you for your opinion</string>
     <string name="val_suggestion_time">You can only submit one suggestion every 24 hours</string>
@@ -79,6 +82,18 @@
     <string name="suggestion">Suggestion</string>
     <string name="suggestion_send">Send Suggestion</string>
     <string name="val_suggestion_email">Enter a valid email</string>
-    <string name="articles">Articles</string>
+
+    <!--    Events-->
+    <string name="day">Day</string>
+
+    <!--    Populate-->
+    <string name="inserts">Insert</string>
+    <string name="insert_events">Register Events</string>
+    <string name="insert_dances">Register Dances</string>
+    <string name="insert_myths">Register Myths</string>
+    <string name="insert_curiosities">Register Curiosities</string>
+    <string name="insert_music">Register Music</string>
+    <string name="insert_art">Register Art</string>
+    <string name="insert_quiz">Register Quiz</string>
 
 </resources>

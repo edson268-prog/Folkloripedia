@@ -77,7 +77,7 @@
                             style="@style/TableLabel"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/material" />
+                            android:text="@string/category" />
 
                         <TextView
                             android:id="@+id/tvArtMaterial"

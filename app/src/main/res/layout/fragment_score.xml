@@ -12,9 +12,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="20dp"
         android:text="@string/result"
         android:textColor="@color/black"
-        android:textSize="40sp"
+        android:textSize="32sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,7 +28,7 @@
         app:cardBackgroundColor="@color/secondary"
         app:cardCornerRadius="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.7"
+        app:layout_constraintHeight_percent="0.8"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvTitle">
 
@@ -50,7 +51,7 @@
                 android:id="@+id/tvScore"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="64dp"
+                android:layout_marginVertical="50dp"
                 android:text="@string/numberExample"
                 android:textColor="@color/white"
                 android:textSize="70sp" />
@@ -62,6 +63,7 @@
                 tools:text="@string/longExample"
                 android:textColor="@color/white"
                 android:layout_marginHorizontal="32dp"
+                android:gravity="center"
                 android:textSize="26sp" />
 
         </LinearLayout>
@@ -72,11 +74,11 @@
         android:id="@+id/fabReturn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="32dp"
+        android:layout_margin="10dp"
         android:src="@drawable/ic_back"
-        app:backgroundTint="@color/primaryStrong"
+        app:backgroundTint="@color/primary"
         app:fabSize="normal"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:tint="@color/white" />
 

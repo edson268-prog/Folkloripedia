@@ -23,7 +23,6 @@ class EventRepositoryImpl @Inject constructor(
     override fun getEventByMonth(monthRequired: String): Flow<List<EventModel>> = flow {
         try {
             val currentLanguage = getCurrentLanguage()
-            Log.d("FirebaseFirestore", "month: $monthRequired")
 
             val result = firestore.collection("Events")
                 .whereEqualTo("Month", monthRequired)
@@ -36,14 +35,17 @@ class EventRepositoryImpl @Inject constructor(
                 var description = document.getString("Description") ?: ""
                 val img = document.getString("Image") ?: ""
                 val month = document.getString("Month") ?: ""
+                val day = document.getString("Day") ?: ""
 
-                if (currentLanguage !== "es") {
+                if (currentLanguage != "es") {
                     name = document.getString("Name_$currentLanguage") ?: ""
                     description = document.getString("Description_$currentLanguage") ?: ""
                 }
-                Log.d("FirebaseFirestore", "Name: $name, img: $img")
-                EventModel(name, description, img, month)
-            }
+
+                val dayInt = day.toIntOrNull() ?: 0
+
+                EventModel(id, name, description, img, month, dayInt)
+            }.sortedBy { it.day }
             emit(eventsList)
 
         } catch (e: Exception) {

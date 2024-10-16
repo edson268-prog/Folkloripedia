@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Folkloripedia</string>
+    <string name="app_name">Folkloripedia Bolivia</string>
     <string name="error">Error</string>
     <string name="longExample">Este es un contenido de ejemplo para llenar un campo y realizar la prueba correspondiente</string>
     <string name="shortExample">Ejemplo</string>
@@ -11,6 +11,9 @@
         <item>Español</item>
     </string-array>
     <string name="language_icon">Idioma</string>
+    <string name="spanish">Español</string>
+    <string name="english">English</string>
+
 
     <!--    months-->
     <string-array name="months_array">
@@ -51,6 +54,7 @@
     <string name="material">Material:</string>
     <string name="origin">Origen:</string>
     <string name="category">Categoría:</string>
+    <string name="articles">Articulos</string>
 
     <!--    Games -->
     <string name="curiosities_roulette">Ruleta de Curiosidades</string>
@@ -67,7 +71,7 @@
     <string name="message_excellent">El contenido ya se queda corto para ti, no te preocupes, pronto pondremos más material a tu disposición</string>
 
     <!--    Suggestions -->
-    <string name="suggestion_message">Como desarrollador novato, he creado esta aplicación con dedicación y entusiasmo. Sin embargo, en este proceso intenso, es posible que se me hayan escapado algunos detalles. Por eso, tu ayuda es fundamental. \n\nEn esta sección de sugerencias, me encantaría conocer tu opinión sobre la aplicación. Ya sea que tengas ideas para mejorar el contenido, hayas notado algún error, o simplemente quieras compartir tu experiencia, tus comentarios son bienvenidos. \n\nTu contribución no solo mejorará esta aplicación dedicada a la población boliviana y potencialmente a usuarios de todo el mundo, sino que también te dará la oportunidad de ser mencionado dentro de la app si tu aporte es implementado. \n\nGracias por descargar y disfrutar de este trabajo. Tu feedback es crucial para su continuo desarrollo y mejora.</string>
+    <string name="suggestion_message">Como desarrollador novato, he creado esta aplicación con dedicación y entusiasmo. Sin embargo, en este proceso intenso, es posible que se me hayan escapado algunos detalles. Por eso, tu ayuda es fundamental. \n\nEn esta sección, me encantaría conocer tu opinión. Ideas, errores o experiencias, todos tus comentarios son bienvenidos. \n\nTu contribución mejorará esta aplicación dedicada a la población boliviana y potencialmente a usuarios de todo el mundo. \n\nGracias por descargar y disfrutar de este trabajo. Tu feedback es crucial para su continuo desarrollo y mejora.</string>
     <string name="val_suggestion_form">Llene todos los campos para continuar</string>
     <string name="suggestion_saved">Su sugerencia fue registrada correctamente, gracias por su opinión</string>
     <string name="val_suggestion_time">Solo puedes enviar una sugerencia cada 24 horas</string>
@@ -76,7 +80,18 @@
     <string name="suggestion">Sugerencia</string>
     <string name="suggestion_send">Enviar sugerencia</string>
     <string name="val_suggestion_email">Introduzca un correo válido</string>
-    <string name="articles">Articulos</string>
 
+    <!--    Events-->
+    <string name="day">Día</string>
+
+    <!--    Populate-->
+    <string name="inserts">Insertar</string>
+    <string name="insert_events">Registrar Eventos</string>
+    <string name="insert_dances">Registrar Dazas</string>
+    <string name="insert_myths">Registrar Mitos</string>
+    <string name="insert_curiosities">Registrar curiosidades</string>
+    <string name="insert_music">Registrar musica</string>
+    <string name="insert_art">Registrar Arte</string>
+    <string name="insert_quiz">Registrar Quiz</string>
 
 </resources>

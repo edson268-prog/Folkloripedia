@@ -37,13 +37,16 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/secondary"
+                android:background="@color/black"
                 android:orientation="vertical"
                 android:padding="16dp">
 
                 <TextView
                     android:id="@+id/tvMythName"
-                    style="@style/ItemTitle"
+                    android:background="@color/dark_blue"
+                    android:textStyle="bold"
+                    android:textColor="@color/red"
+                    android:textSize="28sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
@@ -55,11 +58,13 @@
 
                     <TextView
                         android:id="@+id/tvMythTale"
-                        style="@style/TableValue"
+                        android:fontFamily="@font/fosterama"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="8dp"
+                        android:textSize="20sp"
                         android:scrollHorizontally="false"
+                        android:textColor="@color/white"
                         tools:text="Description" />
                 </ScrollView>
 

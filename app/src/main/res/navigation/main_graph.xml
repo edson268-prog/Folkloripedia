@@ -85,4 +85,9 @@
         android:name="com.edsondev26.folkloripedia.ui.suggestions.SuggestionsFragment"
         android:label="fragment_suggestions"
         tools:layout="@layout/fragment_suggestions" />
+    <fragment
+        android:id="@+id/populateFragment"
+        android:name="com.edsondev26.folkloripedia.ui.populate.PopulateFragment"
+        android:label="fragment_populate"
+        tools:layout="@layout/fragment_populate" />
 </navigation>
