@@ -3,6 +3,7 @@ package com.edsondev26.folkloripedia.data
 import android.content.Context
 import android.util.Log
 import com.edsondev26.folkloripedia.domain.PopulateRepository
+import com.edsondev26.folkloripedia.domain.dto.CuriosityDto
 import com.edsondev26.folkloripedia.domain.dto.DanceDto
 import com.edsondev26.folkloripedia.domain.dto.EventDto
 import com.edsondev26.folkloripedia.domain.dto.MythDto
@@ -101,6 +102,30 @@ class PopulateRepositoryImpl @Inject constructor(
             emit(myths)
         } catch (e: Exception) {
             emit(emptyList<MythDto>())
+            e.printStackTrace()
+        }
+    }
+
+    override fun insertCuriosities(curiosities: List<CuriosityDto>): Flow<List<CuriosityDto>> = flow {
+        try {
+            val batch = firestore.batch()
+
+            curiosities.forEach { curiosity ->
+                val docName = "bolivia_curiosity_${curiosity.id}"
+                val eventRef = firestore.collection("Curiosities").document(docName)
+                val eventData = hashMapOf(
+                    "Description" to curiosity.description,
+                    "Description_en" to curiosity.description_en,
+                    "Image" to curiosity.img
+                )
+                batch.set(eventRef, eventData)
+            }
+
+            batch.commit().await()
+
+            emit(curiosities)
+        } catch (e: Exception) {
+            emit(emptyList<CuriosityDto>())
             e.printStackTrace()
         }
     }

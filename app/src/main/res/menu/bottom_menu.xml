@@ -16,8 +16,8 @@
         android:id="@+id/suggestionsFragment"
         android:icon="@drawable/ic_contact"
         android:title="@string/suggestions" />
-<!--    <item-->
-<!--        android:id="@+id/populateFragment"-->
-<!--        android:icon="@drawable/ic_contact"-->
-<!--        android:title="@string/inserts"/>-->
+    <item
+        android:id="@+id/populateFragment"
+        android:icon="@drawable/ic_contact"
+        android:title="@string/inserts"/>
 </menu>

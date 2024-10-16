@@ -3,6 +3,7 @@ package com.edsondev26.folkloripedia.ui.populate.adapter
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.edsondev26.folkloripedia.domain.PopulateRepository
+import com.edsondev26.folkloripedia.domain.dto.CuriosityDto
 import com.edsondev26.folkloripedia.domain.dto.DanceDto
 import com.edsondev26.folkloripedia.domain.dto.EventDto
 import com.edsondev26.folkloripedia.domain.dto.MythDto
@@ -24,6 +25,9 @@ class PopulateViewModel @Inject constructor(private val populateRepository: Popu
     private val _mythItem = MutableStateFlow<List<MythDto>>(emptyList())
     val mythItem: StateFlow<List<MythDto>> = _mythItem.asStateFlow()
 
+    private val _curiosityItem = MutableStateFlow<List<CuriosityDto>>(emptyList())
+    val curiosityItem: StateFlow<List<CuriosityDto>> = _curiosityItem.asStateFlow()
+
     fun fetchInsertEvents(events: List<EventDto>) {
         viewModelScope.launch {
             populateRepository.insertEvents(events).collect { item ->
@@ -44,6 +48,14 @@ class PopulateViewModel @Inject constructor(private val populateRepository: Popu
         viewModelScope.launch {
             populateRepository.insertMyths(myths).collect { item ->
                 _mythItem.value = item
+            }
+        }
+    }
+
+    fun fetchInsertCuriosities(curiosities: List<CuriosityDto>) {
+        viewModelScope.launch {
+            populateRepository.insertCuriosities(curiosities).collect { item ->
+                _curiosityItem.value = item
             }
         }
     }

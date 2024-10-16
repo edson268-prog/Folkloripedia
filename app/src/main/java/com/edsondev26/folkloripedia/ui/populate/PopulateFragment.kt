@@ -11,6 +11,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.edsondev26.folkloripedia.databinding.FragmentPopulateBinding
+import com.edsondev26.folkloripedia.domain.dto.CuriosityDto
 import com.edsondev26.folkloripedia.domain.dto.DanceDto
 import com.edsondev26.folkloripedia.domain.dto.EventDto
 import com.edsondev26.folkloripedia.domain.dto.MythDto
@@ -107,6 +108,27 @@ class PopulateFragment : Fragment() {
             )
 
             populateViewModel.fetchInsertMyths(myths)
+
+            lifecycleScope.launch {
+                repeatOnLifecycle(Lifecycle.State.STARTED) {
+                    populateViewModel.mythItem.collect { insertedMyths ->
+                        Log.d("Populate", "Registered Myths: $insertedMyths")
+                    }
+                }
+            }
+        }
+
+        binding.btnRegisterCuriosities.setOnClickListener {
+            val curiosities = listOf(
+                CuriosityDto(
+                    "4",
+                    "Bolivia tiene dos ciudades capitales: La Paz y Sucre. Sucre es la capital constitucional, mientras que La Paz es la capital administrativa.",
+                    "Bolivia has two capital cities: La Paz and Sucre. Sucre is the constitutional capital, while La Paz is the administrative capital.",
+                    "https://firebasestorage.googleapis.com/v0/b/folkloripedia.appspot.com/o/Events%2Faniversario_chuquisaca_webp.webp?alt=media&token=a64c8c13-db8e-48bc-a967-5b24f5c4e7ad",
+                )
+            )
+
+            populateViewModel.fetchInsertCuriosities(curiosities)
 
             lifecycleScope.launch {
                 repeatOnLifecycle(Lifecycle.State.STARTED) {

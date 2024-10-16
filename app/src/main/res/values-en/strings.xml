@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Folkloripedia</string>
+    <string name="app_name">Folkloripedia Bolivia</string>
     <string name="error">Error</string>
     <string name="longExample">This is an example content to fill out a field and perform the corresponding test</string>
     <string name="shortExample">Example</string>
@@ -91,5 +91,8 @@
     <string name="insert_events">Register Events</string>
     <string name="insert_dances">Register Dances</string>
     <string name="insert_myths">Register Myths</string>
+    <string name="insert_curiosities">Register Curiosities</string>
+    <string name="insert_music">Register Music</string>
+    <string name="insert_art">Register Art</string>
 
 </resources>

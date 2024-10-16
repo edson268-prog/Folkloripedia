@@ -148,7 +148,7 @@ class RouletteActivity : AppCompatActivity() {
     private fun loadCuriosity() {
         curiosityDialog = createDialog()
         val random = Random.Default
-        val randomId = random.nextInt(1..2).toString()
+        val randomId = random.nextInt(1..30).toString()
         rouletteViewModel.fetchCuriosityById(randomId)
 
         lifecycleScope.launch {

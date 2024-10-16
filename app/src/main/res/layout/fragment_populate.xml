@@ -27,4 +27,25 @@
         android:layout_height="wrap_content"
         android:layout_marginVertical="10dp"
         android:text="@string/insert_myths"/>
+
+    <Button
+        android:id="@+id/btnRegisterCuriosities"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp"
+        android:text="@string/insert_curiosities"/>
+
+    <Button
+        android:id="@+id/btnRegisterMusic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp"
+        android:text="@string/insert_music"/>
+
+    <Button
+        android:id="@+id/btnRegisterArt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp"
+        android:text="@string/insert_art"/>
 </LinearLayout>
