@@ -42,13 +42,14 @@ class MainActivity : AppCompatActivity() {
         initListeners()
     }
 
-    private fun initDefaultLanguage() {
+    private fun initDefaultLanguage(): Configuration {
         val currentLanguage = LanguageUtils.getSavedLanguage(this@MainActivity)
         val locale = Locale(currentLanguage)
         Locale.setDefault(locale)
         val config = Configuration()
         config.setLocale(locale)
         resources.updateConfiguration(config, resources.displayMetrics)
+        return config
     }
 
     private fun initListeners() {
@@ -89,10 +90,17 @@ class MainActivity : AppCompatActivity() {
         LanguageUtils.setLanguage(this, languageCode)
     }
 
+    private fun updateBottomNavView(config: Configuration) {
+        binding.bottomNavView.menu.clear()
+        binding.bottomNavView.inflateMenu(R.menu.bottom_menu)
+        binding.bottomNavView.setupWithNavController(navController)
+    }
+
     private fun initNavigation() {
         val navHost =
             supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
         navController = navHost.navController
-        binding.bottomNavView.setupWithNavController(navController)
+        val config = initDefaultLanguage()
+        updateBottomNavView(config)
     }
 }
