@@ -11,10 +11,13 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.edsondev26.folkloripedia.databinding.FragmentPopulateBinding
+import com.edsondev26.folkloripedia.domain.dto.ArtDto
 import com.edsondev26.folkloripedia.domain.dto.CuriosityDto
 import com.edsondev26.folkloripedia.domain.dto.DanceDto
 import com.edsondev26.folkloripedia.domain.dto.EventDto
+import com.edsondev26.folkloripedia.domain.dto.MusicDto
 import com.edsondev26.folkloripedia.domain.dto.MythDto
+import com.edsondev26.folkloripedia.domain.dto.QuizDto
 import com.edsondev26.folkloripedia.ui.populate.adapter.PopulateViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -132,8 +135,88 @@ class PopulateFragment : Fragment() {
 
             lifecycleScope.launch {
                 repeatOnLifecycle(Lifecycle.State.STARTED) {
-                    populateViewModel.mythItem.collect { insertedMyths ->
-                        Log.d("Populate", "Registered Myths: $insertedMyths")
+                    populateViewModel.curiosityItem.collect { insertedCuriosities ->
+                        Log.d("Populate", "Registered Curiosities: $insertedCuriosities")
+                    }
+                }
+            }
+        }
+
+        binding.btnRegisterMusic.setOnClickListener {
+            val music = listOf(
+                MusicDto(
+                    "002",
+                    "Cordófono / Chordophone",
+                    "El charango es la herencia de la antigua vihuela de mano que llegó a nuestro continente con los españoles en el siglo XV. Sin embargo; fue el hombre andino quien a partir de la vihuela española dio origen al charango imprimiendo en este no sólo características únicas de su cultura sino también su sentimiento.||Actualmente, es conocido a nivel mundial. No obstante, los países en que este instrumento tiene mayor difusión e influencia son: Bolivia, Perú, Chile, Argentina y Ecuador.||El charango tiene diez cuerdas dispuestas en cinco ordenes, vale decir son cinco cuerdas dobles. Cada una de estas cuerdas dobles emite el mismo sonido a excepción de las terceras que están separadas por una octava.||Uno de los grandes causantes de esta popularización fue el músico y luthier boliviano Mauro Núñez. A partir de los años 60, se exporta la música de charango a otros lugares como Argentina, Chile e incluso países europeos a cargo de inmigrantes que llevan el instrumento a nuevas tierras.",
+                    "The charango is the heritage of the ancient hand vihuela that came to our continent with the Spanish in the 15th century. However; It was the Andean man who, from the Spanish vihuela, gave rise to the charango, imprinting on it not only unique characteristics of his culture but also his feeling.||Currently, it is known worldwide. However, the countries in which this instrument has the greatest diffusion and influence are: Bolivia, Peru, Chile, Argentina and Ecuador.||The charango has ten strings arranged in five orders, that is, there are five double strings. Each of these double strings emits the same sound except for the third ones, which are separated by an octave.||One of the great causes of this popularization was the Bolivian musician and luthier Mauro Núñez. Starting in the 60s, charango music was exported to other places such as Argentina, Chile and even European countries by immigrants who took the instrument to new lands.",
+                    "https://firebasestorage.googleapis.com/v0/b/folkloripedia.appspot.com/o/Music%2Fcharango_webp.webp?alt=media&token=89fcc656-7f82-452f-9883-5c04c2968aa3",
+                    "Antiguamente usaban quirquinchos, hoy en día solo se usa madera, de preferencia Mara",
+                    "In the past they used quirquinchos, nowadays only wood is used, preferably Mara",
+                    "Charango",
+                    "Bolivia",
+                    "https://firebasestorage.googleapis.com/v0/b/folkloripedia.appspot.com/o/Music%2Fcharango_cut_ogg.ogg?alt=media&token=0a700ac8-8b19-4c7d-9381-eb1d61819af1",
+                    "MU"
+                )
+            )
+
+            populateViewModel.fetchInsertMusic(music)
+
+            lifecycleScope.launch {
+                repeatOnLifecycle(Lifecycle.State.STARTED) {
+                    populateViewModel.musicItem.collect { insertedMusic ->
+                        Log.d("Populate", "Registered Music: $insertedMusic")
+                    }
+                }
+            }
+        }
+
+        binding.btnRegisterArt.setOnClickListener {
+            val arts = listOf(
+                ArtDto(
+                    "003",
+                    "Antonio Díaz Villamil",
+                    "“Wara Wara” es un largometraje boliviano dirigido por José María Velasco Maidana, basado en una obra teatral del escritor Antonio Díaz Villamil llamada \"La voz de la quena”. La película que se estrenó en la ciudad de La Paz en 1930 cuenta la historia de amor de la princesa Wara Wara, hija de un nativo americano del reino de Jatun Colla,\u200B con el capitán español Tristín de la Vega en la época de la conquista española.",
+                    "“Wara Wara” is a Bolivian feature film directed by José María Velasco Maidana, based on a play by the writer Antonio Díaz Villamil called \"The voice of the quena.\" The film that premiered in the city of La Paz in 1930 tells the story love of Princess Wara Wara, daughter of a Native American from the kingdom of Jatun Colla, with the Spanish captain Tristín de la Vega at the time of the Spanish conquest.",
+                    "https://firebasestorage.googleapis.com/v0/b/folkloripedia.appspot.com/o/Music%2Fwara-wara_webp.webp?alt=media&token=5e41a8c3-72b2-47f3-9bdb-2d67d6bfe315",
+                    "Largometraje",
+                    "Feature film",
+                    "Wara Wara",
+                    "AR"
+                )
+            )
+
+            populateViewModel.fetchInsertArt(arts)
+
+            lifecycleScope.launch {
+                repeatOnLifecycle(Lifecycle.State.STARTED) {
+                    populateViewModel.artItem.collect { insertedArt ->
+                        Log.d("Populate", "Registered Art: $insertedArt")
+                    }
+                }
+            }
+        }
+
+        binding.btnRegisterQuiz.setOnClickListener {
+            val quiz = listOf(
+                QuizDto(
+                    "6",
+                    "10",
+                    "8",
+                    "5",
+                    "https://firebasestorage.googleapis.com/v0/b/folkloripedia.appspot.com/o/Music%2Fcharango_webp.webp?alt=media&token=89fcc656-7f82-452f-9883-5c04c2968aa3",
+                    "¿Cuántas cuerdas tiene un charango?",
+                    "How many strings does a charango have?",
+                    "A",
+                    ""
+                )
+            )
+
+            populateViewModel.fetchInsertQuiz(quiz)
+
+            lifecycleScope.launch {
+                repeatOnLifecycle(Lifecycle.State.STARTED) {
+                    populateViewModel.quizItem.collect { insertedQuiz ->
+                        Log.d("Populate", "Registered Quiz: $insertedQuiz")
                     }
                 }
             }

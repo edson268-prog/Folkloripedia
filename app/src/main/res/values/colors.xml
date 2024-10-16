@@ -8,7 +8,8 @@
     <color name="secondary">#A8C2D9</color>
     <color name="light">#fcfdff</color>
     <color name="light_gray">#CCCCCC</color>
-    <color name="carouselBackground">#666666</color>
+    <color name="gray">#666666</color>
+    <color name="dark_blue">#3F51B5</color>
 
     <color name="red">#FF0000</color>
 </resources>

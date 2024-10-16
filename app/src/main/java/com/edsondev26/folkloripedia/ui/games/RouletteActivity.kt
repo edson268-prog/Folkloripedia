@@ -29,6 +29,7 @@ import com.edsondev26.folkloripedia.databinding.ActivityRouletteBinding
 import com.edsondev26.folkloripedia.databinding.DialogCuriosityBinding
 import com.edsondev26.folkloripedia.domain.model.CuriosityModel
 import com.edsondev26.folkloripedia.ui.core.listeners.OnSwipeTouchListener
+import com.edsondev26.folkloripedia.utils.StatusBarUtils
 import com.squareup.picasso.Picasso
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -48,16 +49,11 @@ class RouletteActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        StatusBarUtils.setStatusBarColor(this)
         binding = ActivityRouletteBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         bindingDialog = DialogCuriosityBinding.inflate(layoutInflater)
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
         initUI()
     }
 

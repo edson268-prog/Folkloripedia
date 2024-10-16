@@ -1,32 +1,22 @@
 package com.edsondev26.folkloripedia.ui.main
 
 import android.app.Dialog
-import android.content.Context
 import android.content.res.Configuration
+import android.os.Build
 import android.os.Bundle
-import android.util.Log
-import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
 import android.widget.Button
-import android.widget.ImageView
-import android.widget.ProgressBar
-import android.widget.Spinner
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.edsondev26.folkloripedia.R
 import com.edsondev26.folkloripedia.databinding.ActivityMainBinding
-import com.edsondev26.folkloripedia.ui.home.adapter.LanguageSpinnerAdapter
 import com.edsondev26.folkloripedia.utils.LanguageUtils
-import com.squareup.picasso.Callback
-import com.squareup.picasso.Picasso
+import com.edsondev26.folkloripedia.utils.StatusBarUtils
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.Locale
 
@@ -35,22 +25,15 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
 
-    private lateinit var languages: Array<String>
-    private lateinit var flags: IntArray
-
+    @RequiresApi(Build.VERSION_CODES.R)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         // Force to always work with light mode
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        StatusBarUtils.setStatusBarColor(this)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
-
         initUi()
     }
 

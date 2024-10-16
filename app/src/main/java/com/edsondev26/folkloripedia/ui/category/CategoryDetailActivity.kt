@@ -8,6 +8,8 @@ import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.Lifecycle
@@ -20,6 +22,7 @@ import com.edsondev26.folkloripedia.databinding.ActivityCategoryDetailBinding
 import com.edsondev26.folkloripedia.domain.model.CategoryItemModel
 import com.edsondev26.folkloripedia.ui.category.adapter.CategoryAdapter
 import com.edsondev26.folkloripedia.ui.category_detail.CategoryDetailFragmentActivity
+import com.edsondev26.folkloripedia.utils.StatusBarUtils
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -39,15 +42,16 @@ class CategoryDetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        StatusBarUtils.setStatusBarColor(this)
         binding = ActivityCategoryDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+        Log.i("FOLKLORIPEDIA_CATEGORY", "The selected value is ${args.type}")
+
+        if (args.type.toString() == "Myths"){
+            val rootLayout = findViewById<ConstraintLayout>(R.id.mainCategory)
+            rootLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.gray))
         }
-        Log.i("FOLKLORIPEDIA", "The selected value is ${args.type}")
 
         initUI()
     }

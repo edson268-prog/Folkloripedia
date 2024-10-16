@@ -94,5 +94,6 @@
     <string name="insert_curiosities">Register Curiosities</string>
     <string name="insert_music">Register Music</string>
     <string name="insert_art">Register Art</string>
+    <string name="insert_quiz">Register Quiz</string>
 
 </resources>
