@@ -1,7 +1,6 @@
 package com.edsondev26.folkloripedia.data
 
 import android.content.Context
-import android.util.Log
 import com.edsondev26.folkloripedia.domain.PopulateRepository
 import com.edsondev26.folkloripedia.domain.dto.ArtDto
 import com.edsondev26.folkloripedia.domain.dto.CuriosityDto
@@ -28,7 +27,6 @@ class PopulateRepositoryImpl @Inject constructor(
 
             events.forEach { event ->
                 val docName = "bolivia_evento_${event.id}"
-                Log.d("Populate", "Evento docName: $docName")
                 val eventRef = firestore.collection("Events").document(docName)
                 val eventData = hashMapOf(
                     "Day" to event.day,

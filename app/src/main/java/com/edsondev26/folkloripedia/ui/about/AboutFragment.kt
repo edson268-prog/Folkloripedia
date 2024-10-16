@@ -1,13 +1,11 @@
 package com.edsondev26.folkloripedia.ui.about
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.edsondev26.folkloripedia.R
+import androidx.fragment.app.Fragment
 import com.edsondev26.folkloripedia.databinding.FragmentAboutBinding
-import com.edsondev26.folkloripedia.databinding.FragmentHomeBinding
 
 class AboutFragment : Fragment() {
     private var _binding: FragmentAboutBinding? = null

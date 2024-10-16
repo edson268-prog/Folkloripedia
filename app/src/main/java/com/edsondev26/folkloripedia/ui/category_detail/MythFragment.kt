@@ -16,7 +16,6 @@ import androidx.lifecycle.repeatOnLifecycle
 import com.edsondev26.folkloripedia.R
 import com.edsondev26.folkloripedia.databinding.FragmentMythBinding
 import com.edsondev26.folkloripedia.ui.category_detail.adapter.MythDetailFragmentViewHolder
-import com.edsondev26.folkloripedia.utils.StatusBarUtils
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 

@@ -1,7 +1,6 @@
 package com.edsondev26.folkloripedia.data
 
 import android.content.Context
-import android.util.Log
 import com.edsondev26.folkloripedia.domain.CategoryRepository
 import com.edsondev26.folkloripedia.domain.model.ArtDetailModel
 import com.edsondev26.folkloripedia.domain.model.ArticleModel
@@ -41,7 +40,6 @@ class CategoryRepositoryImpl @Inject constructor(
 
                 val info = document.getString(getInfoValue(collectionName)) ?: ""
 
-//                Log.d("FirebaseFirestore", "Nombre: $name, img: $img")
                 CategoryItemModel(id, name, type, img, info)
             }
             emit(itemsList)
@@ -70,12 +68,10 @@ class CategoryRepositoryImpl @Inject constructor(
                 val img = documentSnapshot.getString("Image") ?: ""
                 val year = documentSnapshot.getString("Year_Origin") ?: ""
 
-                Log.d("LANGUAGE_UTIL", "The language is: $currentLanguage")
                 if (currentLanguage != "es") {
                     description = documentSnapshot.getString("Description_$currentLanguage") ?: ""
                     instruments = documentSnapshot.getString("Instruments_$currentLanguage") ?: ""
                 }
-                Log.d("LANGUAGE_UTIL", "The description is: $description")
 
                 val danceItem = DanceDetailModel(
                     id,

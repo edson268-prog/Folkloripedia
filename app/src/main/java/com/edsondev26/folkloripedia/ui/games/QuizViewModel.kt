@@ -6,7 +6,6 @@ import com.edsondev26.folkloripedia.domain.GameRepository
 import com.edsondev26.folkloripedia.domain.model.QuizModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 

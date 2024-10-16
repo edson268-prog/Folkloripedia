@@ -5,7 +5,6 @@ import android.content.res.Configuration
 import android.os.Build
 import android.os.Bundle
 import android.widget.Button
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
@@ -65,14 +64,12 @@ class MainActivity : AppCompatActivity() {
 
         val btnSpanish = dialog.findViewById<Button>(R.id.mbSpanish)
         btnSpanish.setOnClickListener {
-            Toast.makeText(this@MainActivity, "Selected: ES", Toast.LENGTH_SHORT).show()
             dialog.dismiss()
             setLocale("es")
         }
 
         val btnEnglish = dialog.findViewById<Button>(R.id.mbEnglish)
         btnEnglish.setOnClickListener {
-            Toast.makeText(this@MainActivity, "Selected: EN", Toast.LENGTH_SHORT).show()
             dialog.dismiss()
             setLocale("en")
         }
