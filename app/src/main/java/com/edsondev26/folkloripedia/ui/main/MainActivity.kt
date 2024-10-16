@@ -1,5 +1,6 @@
 package com.edsondev26.folkloripedia.ui.main
 
+import android.app.Dialog
 import android.content.Context
 import android.content.res.Configuration
 import android.os.Bundle
@@ -7,6 +8,9 @@ import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.ProgressBar
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -21,6 +25,8 @@ import com.edsondev26.folkloripedia.R
 import com.edsondev26.folkloripedia.databinding.ActivityMainBinding
 import com.edsondev26.folkloripedia.ui.home.adapter.LanguageSpinnerAdapter
 import com.edsondev26.folkloripedia.utils.LanguageUtils
+import com.squareup.picasso.Callback
+import com.squareup.picasso.Picasso
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.Locale
 
@@ -49,35 +55,46 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initUi() {
+        initDefaultLanguage()
         initNavigation()
-        initLanguageConfig()
+        initListeners()
     }
 
-    private fun initLanguageConfig() {
-        languages = resources.getStringArray(R.array.languages)
-        flags = intArrayOf(R.drawable.ic_en_uk, R.drawable.ic_es_spain)
+    private fun initDefaultLanguage() {
+        val currentLanguage = LanguageUtils.getSavedLanguage(this@MainActivity)
+        val locale = Locale(currentLanguage)
+        Locale.setDefault(locale)
+        val config = Configuration()
+        config.setLocale(locale)
+        resources.updateConfiguration(config, resources.displayMetrics)
+    }
 
-        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, languages)
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-
-        val flagAdapter = LanguageSpinnerAdapter(this, languages, flags)
-        binding.spLanguages.adapter = flagAdapter
-
-        binding.spLanguages.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parent: AdapterView<*>, view: android.view.View?, position: Int, id: Long) {
-
-                val selectedLanguageCode = if (position == 0) "en" else "es"
-
-                val currentLanguage = LanguageUtils.getSavedLanguage(this@MainActivity)
-
-                if (selectedLanguageCode != currentLanguage) {
-                    Toast.makeText(this@MainActivity, "Selected: ${languages[position]}", Toast.LENGTH_SHORT).show()
-                    setLocale(selectedLanguageCode)
-                }
-            }
-
-            override fun onNothingSelected(parent: AdapterView<*>) { }
+    private fun initListeners() {
+        binding.btnLanguages.setOnClickListener {
+            showLanguageDialog()
         }
+    }
+
+    private fun showLanguageDialog() {
+        val dialog = Dialog(this)
+
+        dialog.setContentView(R.layout.dialog_languages)
+
+        val btnSpanish = dialog.findViewById<Button>(R.id.mbSpanish)
+        btnSpanish.setOnClickListener {
+            Toast.makeText(this@MainActivity, "Selected: ES", Toast.LENGTH_SHORT).show()
+            dialog.dismiss()
+            setLocale("es")
+        }
+
+        val btnEnglish = dialog.findViewById<Button>(R.id.mbEnglish)
+        btnEnglish.setOnClickListener {
+            Toast.makeText(this@MainActivity, "Selected: EN", Toast.LENGTH_SHORT).show()
+            dialog.dismiss()
+            setLocale("en")
+        }
+
+        dialog.show()
     }
 
     private fun setLocale(languageCode: String) {

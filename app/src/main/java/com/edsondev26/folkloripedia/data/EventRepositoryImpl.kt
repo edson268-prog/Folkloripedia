@@ -37,7 +37,7 @@ class EventRepositoryImpl @Inject constructor(
                 val month = document.getString("Month") ?: ""
                 val day = document.getString("Day") ?: ""
 
-                if (currentLanguage !== "es") {
+                if (currentLanguage != "es") {
                     name = document.getString("Name_$currentLanguage") ?: ""
                     description = document.getString("Description_$currentLanguage") ?: ""
                 }

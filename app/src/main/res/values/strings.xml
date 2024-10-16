@@ -11,6 +11,9 @@
         <item>Español</item>
     </string-array>
     <string name="language_icon">Idioma</string>
+    <string name="spanish">Español</string>
+    <string name="english">English</string>
+
 
     <!--    months-->
     <string-array name="months_array">
@@ -86,6 +89,5 @@
     <string name="insert_events">Registrar Eventos</string>
     <string name="insert_dances">Registrar Dazas</string>
     <string name="insert_myths">Registrar Mitos</string>
-
 
 </resources>

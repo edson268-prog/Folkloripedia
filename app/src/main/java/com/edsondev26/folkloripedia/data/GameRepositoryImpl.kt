@@ -36,7 +36,7 @@ class GameRepositoryImpl @Inject constructor(
                 var description = documentSnapshot.getString("Description") ?: ""
                 val img = documentSnapshot.getString("Image") ?: ""
 
-                if (currentLanguage !== "es") {
+                if (currentLanguage != "es") {
                     description = documentSnapshot.getString("Description_$currentLanguage") ?: ""
                 }
 
@@ -73,7 +73,7 @@ class GameRepositoryImpl @Inject constructor(
                 val img = document.getString("Image") ?: ""
                 val sound = document.getString("Sound") ?: ""
 
-                if (currentLanguage !== "es") {
+                if (currentLanguage != "es") {
                     question = document.getString("Question_$currentLanguage") ?: ""
                 }
                 Log.d("FirebaseFirestore", "Question: $question, img: $img")

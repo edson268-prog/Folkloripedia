@@ -71,10 +71,11 @@ class CategoryRepositoryImpl @Inject constructor(
                 val year = documentSnapshot.getString("Year_Origin") ?: ""
 
                 Log.d("LANGUAGE_UTIL", "The language is: $currentLanguage")
-                if (currentLanguage !== "es") {
+                if (currentLanguage != "es") {
                     description = documentSnapshot.getString("Description_$currentLanguage") ?: ""
                     instruments = documentSnapshot.getString("Instruments_$currentLanguage") ?: ""
                 }
+                Log.d("LANGUAGE_UTIL", "The description is: $description")
 
                 val danceItem = DanceDetailModel(
                     id,
@@ -112,7 +113,7 @@ class CategoryRepositoryImpl @Inject constructor(
                 val img = documentSnapshot.getString("Image") ?: ""
                 var material = documentSnapshot.getString("Material") ?: ""
 
-                if (currentLanguage !== "es") {
+                if (currentLanguage != "es") {
                     description = documentSnapshot.getString("Description_$currentLanguage") ?: ""
                     material = documentSnapshot.getString("Material_$currentLanguage") ?: ""
                 }
@@ -153,7 +154,7 @@ class CategoryRepositoryImpl @Inject constructor(
                 val img = documentSnapshot.getString("Image") ?: ""
                 val sound = documentSnapshot.getString("Sound") ?: ""
 
-                if (currentLanguage !== "es") {
+                if (currentLanguage != "es") {
                     description = documentSnapshot.getString("Description_$currentLanguage") ?: ""
                     material = documentSnapshot.getString("Material_$currentLanguage") ?: ""
                 }
@@ -193,7 +194,7 @@ class CategoryRepositoryImpl @Inject constructor(
                 var tale = documentSnapshot.getString("Tale") ?: ""
                 val img = documentSnapshot.getString("Image") ?: ""
 
-                if (currentLanguage !== "es") {
+                if (currentLanguage != "es") {
                     tale = documentSnapshot.getString("Tale_$currentLanguage") ?: ""
                 }
 

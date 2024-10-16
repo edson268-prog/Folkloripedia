@@ -12,6 +12,8 @@
         <item>Español</item>
     </string-array>
     <string name="language_icon">Language</string>
+    <string name="spanish">Español</string>
+    <string name="english">English</string>
 
     <!--    months-->
     <string-array name="months_array">
