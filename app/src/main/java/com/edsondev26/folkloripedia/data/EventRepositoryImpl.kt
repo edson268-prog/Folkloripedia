@@ -1,7 +1,6 @@
 package com.edsondev26.folkloripedia.data
 
 import android.content.Context
-import android.util.Log
 import com.edsondev26.folkloripedia.domain.EventRepository
 import com.edsondev26.folkloripedia.domain.model.EventModel
 import com.edsondev26.folkloripedia.utils.LanguageUtils

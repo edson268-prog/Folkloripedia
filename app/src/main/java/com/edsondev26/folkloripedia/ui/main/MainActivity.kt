@@ -5,7 +5,6 @@ import android.content.res.Configuration
 import android.os.Build
 import android.os.Bundle
 import android.widget.Button
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
@@ -43,13 +42,14 @@ class MainActivity : AppCompatActivity() {
         initListeners()
     }
 
-    private fun initDefaultLanguage() {
+    private fun initDefaultLanguage(): Configuration {
         val currentLanguage = LanguageUtils.getSavedLanguage(this@MainActivity)
         val locale = Locale(currentLanguage)
         Locale.setDefault(locale)
         val config = Configuration()
         config.setLocale(locale)
         resources.updateConfiguration(config, resources.displayMetrics)
+        return config
     }
 
     private fun initListeners() {
@@ -65,14 +65,12 @@ class MainActivity : AppCompatActivity() {
 
         val btnSpanish = dialog.findViewById<Button>(R.id.mbSpanish)
         btnSpanish.setOnClickListener {
-            Toast.makeText(this@MainActivity, "Selected: ES", Toast.LENGTH_SHORT).show()
             dialog.dismiss()
             setLocale("es")
         }
 
         val btnEnglish = dialog.findViewById<Button>(R.id.mbEnglish)
         btnEnglish.setOnClickListener {
-            Toast.makeText(this@MainActivity, "Selected: EN", Toast.LENGTH_SHORT).show()
             dialog.dismiss()
             setLocale("en")
         }
@@ -92,10 +90,17 @@ class MainActivity : AppCompatActivity() {
         LanguageUtils.setLanguage(this, languageCode)
     }
 
+    private fun updateBottomNavView(config: Configuration) {
+        binding.bottomNavView.menu.clear()
+        binding.bottomNavView.inflateMenu(R.menu.bottom_menu)
+        binding.bottomNavView.setupWithNavController(navController)
+    }
+
     private fun initNavigation() {
         val navHost =
             supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
         navController = navHost.navController
-        binding.bottomNavView.setupWithNavController(navController)
+        val config = initDefaultLanguage()
+        updateBottomNavView(config)
     }
 }

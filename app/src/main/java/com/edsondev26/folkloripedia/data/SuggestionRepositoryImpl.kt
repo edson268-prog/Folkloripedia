@@ -19,8 +19,7 @@ class SuggestionRepositoryImpl @Inject constructor(
 
     companion object {
         private const val LAST_SUGGESTION_TIME = "last_suggestion_time"
-//        private const val TIME_LIMIT = 24 * 60 * 60 * 1000
-        private const val TIME_LIMIT = 120
+        private const val TIME_LIMIT = 24 * 60 * 60 * 1000
     }
 
     override fun setSuggestion(suggestion: SuggestionModel): Flow<String> = flow {

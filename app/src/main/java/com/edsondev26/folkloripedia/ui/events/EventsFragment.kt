@@ -1,24 +1,15 @@
 package com.edsondev26.folkloripedia.ui.events
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
-import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.GridLayoutManager
 import com.edsondev26.folkloripedia.databinding.FragmentEventsBinding
-import com.edsondev26.folkloripedia.databinding.ItemEventBinding
-import com.edsondev26.folkloripedia.ui.category.CategoryDetailViewModel
-import com.edsondev26.folkloripedia.ui.category_detail.adapter.DanceDetailFragmentViewHolder
 import com.edsondev26.folkloripedia.ui.events.adapter.EventAdapter
-import com.edsondev26.folkloripedia.ui.events.adapter.EventViewHolder
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -59,12 +50,10 @@ class EventsFragment : Fragment() {
                     "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"
                 )
                 val selectedMonth = monthsAbbreviation[position]
-                Log.d("EventsFragment", "selectedMonth: $selectedMonth")
                 getEvents(selectedMonth)
             }
 
             override fun onNothingSelected(parent: AdapterView<*>) {
-                // Maneja el caso donde no se selecciona nada si es necesario
             }
         }
     }

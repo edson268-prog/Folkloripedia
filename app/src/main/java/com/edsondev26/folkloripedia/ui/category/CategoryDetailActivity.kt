@@ -2,16 +2,12 @@ package com.edsondev26.folkloripedia.ui.category
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
@@ -46,8 +42,6 @@ class CategoryDetailActivity : AppCompatActivity() {
         binding = ActivityCategoryDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        Log.i("FOLKLORIPEDIA_CATEGORY", "The selected value is ${args.type}")
-
         if (args.type.toString() == "Myths"){
             val rootLayout = findViewById<ConstraintLayout>(R.id.mainCategory)
             rootLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.gray))
@@ -68,13 +62,11 @@ class CategoryDetailActivity : AppCompatActivity() {
         // When the element is pressed
         categoryAdapter = CategoryAdapter { selectedItem ->
             val itemId = selectedItem.id
-            Toast.makeText(this, "Selected: $itemId", Toast.LENGTH_SHORT).show()
             navigateToCategoryDetail(selectedItem)
         }
 
         CoroutineScope(Dispatchers.Main).launch {
             viewModel.isLoading.collect { isLoading ->
-                Log.d("LoadingState", "isLoading: $isLoading")
                 if (isLoading) {
                     binding.pbCategoryItems.visibility = View.VISIBLE
                     binding.rvListedArticles.visibility = View.GONE

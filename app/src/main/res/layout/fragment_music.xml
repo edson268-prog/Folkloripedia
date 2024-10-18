@@ -87,22 +87,6 @@
                             android:padding="8dp" />
                     </TableRow>
 
-                    <!--                <TableRow>-->
-
-                    <!--                    <TextView-->
-                    <!--                        style="@style/TableLabel"-->
-                    <!--                        android:layout_width="match_parent"-->
-                    <!--                        android:layout_height="wrap_content"-->
-                    <!--                        android:text="@string/vestment" />-->
-
-                    <!--                    <ImageButton-->
-                    <!--                        android:id="@+id/btnShowVestmentImage"-->
-                    <!--                        android:layout_width="wrap_content"-->
-                    <!--                        android:layout_height="wrap_content"-->
-                    <!--                        android:src="@drawable/ic_image"-->
-                    <!--                        android:contentDescription="@string/vestment" />-->
-                    <!--                </TableRow>-->
-
                     <TableRow>
 
                         <TextView

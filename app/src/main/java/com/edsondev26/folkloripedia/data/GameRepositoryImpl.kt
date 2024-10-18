@@ -1,7 +1,6 @@
 package com.edsondev26.folkloripedia.data
 
 import android.content.Context
-import android.util.Log
 import com.edsondev26.folkloripedia.domain.GameRepository
 import com.edsondev26.folkloripedia.domain.model.CuriosityModel
 import com.edsondev26.folkloripedia.domain.model.QuizModel
@@ -76,7 +75,6 @@ class GameRepositoryImpl @Inject constructor(
                 if (currentLanguage != "es") {
                     question = document.getString("Question_$currentLanguage") ?: ""
                 }
-                Log.d("FirebaseFirestore", "Question: $question, img: $img")
                 QuizModel(id, question, answerA, answerB, answerC, rightAnswer, img, sound)
             }
 

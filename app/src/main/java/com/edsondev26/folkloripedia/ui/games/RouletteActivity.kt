@@ -4,7 +4,6 @@ import android.animation.ObjectAnimator
 import android.annotation.SuppressLint
 import android.app.Dialog
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
@@ -18,8 +17,6 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.animation.doOnEnd
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -63,9 +60,6 @@ class RouletteActivity : AppCompatActivity() {
 
     @SuppressLint("ClickableViewAccessibility")
     private fun initListeners() {
-//        binding.ivRoulette.setOnClickListener {
-//            spinRoulette(true)
-//        }
         binding.ivRoulette.setOnTouchListener(object : OnSwipeTouchListener(this@RouletteActivity) {
             override fun onSwipeRight() {
                 spinRoulette(true)
@@ -79,12 +73,10 @@ class RouletteActivity : AppCompatActivity() {
 
     // START ANIMATION
     private fun spinRoulette(toRight: Boolean) {
-        Log.i("spinRoulette", "spinRoulette")
         if (isAnimationInProgress) {
             return
         }
         isAnimationInProgress = true
-        Log.i("spinRoulette", "loadCuriosity")
         loadCuriosity()
 
         val random = Random.Default

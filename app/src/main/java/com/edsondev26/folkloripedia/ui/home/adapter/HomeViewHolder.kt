@@ -3,7 +3,6 @@ package com.edsondev26.folkloripedia.ui.home.adapter
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import android.view.animation.LinearInterpolator
 import androidx.recyclerview.widget.RecyclerView
 import com.edsondev26.folkloripedia.R
 import com.edsondev26.folkloripedia.databinding.ItemArticleHomeBinding
