@@ -89,11 +89,35 @@
 
                 </TableLayout>
 
-                <TextView
-                    style="@style/TableLabel"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/description" />
+                    android:orientation="horizontal"
+                    android:gravity="end">
+
+                    <TextView
+                        style="@style/TableLabel"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/description" />
+
+                    <Button
+                        android:id="@+id/btn_minus"
+                        style="@style/SizeButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:text="-"/>
+
+                    <Button
+                        android:id="@+id/btn_plus"
+                        style="@style/SizeButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="+"/>
+
+                </LinearLayout>
 
                 <ScrollView
                     android:layout_width="match_parent"

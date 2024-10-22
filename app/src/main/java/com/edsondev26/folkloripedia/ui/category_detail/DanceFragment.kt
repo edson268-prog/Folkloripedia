@@ -2,6 +2,7 @@ package com.edsondev26.folkloripedia.ui.category_detail
 
 import android.app.Dialog
 import android.os.Bundle
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,6 +18,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import com.edsondev26.folkloripedia.R
 import com.edsondev26.folkloripedia.databinding.FragmentDanceBinding
 import com.edsondev26.folkloripedia.ui.category_detail.adapter.DanceDetailFragmentViewHolder
+import com.edsondev26.folkloripedia.utils.SizeUtils
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 import dagger.hilt.android.AndroidEntryPoint
@@ -78,6 +80,8 @@ class DanceFragment : Fragment() {
         binding.btnShowVestmentImage.setOnClickListener {
             showImageDialog()
         }
+        binding.btnMinus.setOnClickListener { SizeUtils.changeFontSize(-2f, binding.tvDanceDescription) }
+        binding.btnPlus.setOnClickListener { SizeUtils.changeFontSize(2f, binding.tvDanceDescription) }
     }
 
     private fun getDanceItem() {
@@ -121,4 +125,9 @@ class DanceFragment : Fragment() {
 
         dialog.show()
     }
+
+//    private fun changeFontSize(change: Float) {
+//        fontSize = (fontSize + change).coerceIn(8f, 32f)
+//        binding.tvDanceDescription.setTextSize(TypedValue.COMPLEX_UNIT_SP, fontSize)
+//    }
 }

@@ -73,6 +73,7 @@ class RouletteActivity : AppCompatActivity() {
 
     // START ANIMATION
     private fun spinRoulette(toRight: Boolean) {
+        binding.tvMessageRoulette.visibility = View.GONE
         if (isAnimationInProgress) {
             return
         }

@@ -15,6 +15,11 @@ class MusicDetailFragmentViewHolder(view: View) : RecyclerView.ViewHolder(view) 
         bindingArt.tvMusicOrigin.text = musicInfo.origin
         bindingArt.tvMusicCategory.text = musicInfo.category
         bindingArt.tvMusicMaterial.text = musicInfo.material
-        bindingArt.tvDanceDescription.text = musicInfo.description.replace("||", "\n\n")
+        bindingArt.tvMusicDescription.text = musicInfo.description.replace("||", "\n\n")
+        if (musicInfo.sound.isEmpty()) {
+            bindingArt.fabPlayMusic.visibility = View.GONE
+        } else {
+            bindingArt.fabPlayMusic.visibility = View.VISIBLE
+        }
     }
 }

@@ -46,16 +46,24 @@ class EventsFragment : Fragment() {
         binding.spMonths.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
                 val monthsAbbreviation = listOf(
-                    "JAN", "FEB", "MAR", "APR", "MAY", "JUN",
+                    "", "JAN", "FEB", "MAR", "APR", "MAY", "JUN",
                     "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"
                 )
                 val selectedMonth = monthsAbbreviation[position]
-                getEvents(selectedMonth)
+                if(selectedMonth.isNotEmpty()){
+                    getEvents(selectedMonth)
+                } else {
+                    binding.pbItemInfo.visibility = View.GONE
+                    binding.rvListedEvents.visibility = View.GONE
+                    binding.tvMessageEvent.visibility = View.VISIBLE
+                }
+
             }
 
             override fun onNothingSelected(parent: AdapterView<*>) {
             }
         }
+        binding.spMonths.setSelection(0)
     }
 
     fun getEvents(month: String){
@@ -66,9 +74,11 @@ class EventsFragment : Fragment() {
                 if (isLoading) {
                     binding.pbItemInfo.visibility = View.VISIBLE
                     binding.rvListedEvents.visibility = View.GONE
+                    binding.tvMessageEvent.visibility = View.GONE
                 } else {
                     binding.pbItemInfo.visibility = View.GONE
                     binding.rvListedEvents.visibility = View.VISIBLE
+                    binding.tvMessageEvent.visibility = View.GONE
                 }
             }
         }

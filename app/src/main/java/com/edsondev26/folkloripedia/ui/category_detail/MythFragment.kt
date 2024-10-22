@@ -16,6 +16,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import com.edsondev26.folkloripedia.R
 import com.edsondev26.folkloripedia.databinding.FragmentMythBinding
 import com.edsondev26.folkloripedia.ui.category_detail.adapter.MythDetailFragmentViewHolder
+import com.edsondev26.folkloripedia.utils.SizeUtils
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -56,6 +57,12 @@ class MythFragment : Fragment() {
     private fun initUI() {
         setVisibility()
         getMythItem()
+        initListeners()
+    }
+
+    private fun initListeners() {
+        binding.btnMinus.setOnClickListener { SizeUtils.changeFontSize(-2f, binding.tvMythTale) }
+        binding.btnPlus.setOnClickListener { SizeUtils.changeFontSize(2f, binding.tvMythTale) }
     }
 
     private fun setVisibility() {

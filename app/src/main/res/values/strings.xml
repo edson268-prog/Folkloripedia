@@ -17,6 +17,7 @@
 
     <!--    months-->
     <string-array name="months_array">
+        <item>Seleccione un mes</item>
         <item>Enero</item>
         <item>Febrero</item>
         <item>Marzo</item>
@@ -69,6 +70,7 @@
     <string name="message_good">Has asimilado un buen porcentaje del contenido, sigue así</string>
     <string name="result_excellent">Estas dominando!!</string>
     <string name="message_excellent">El contenido ya se queda corto para ti, no te preocupes, pronto pondremos más material a tu disposición</string>
+    <string name="roulette_message">Gira la ruleta</string>
 
     <!--    Suggestions -->
     <string name="suggestion_message">Como desarrollador novato, he creado esta aplicación con dedicación y entusiasmo. Sin embargo, en este proceso intenso, es posible que se me hayan escapado algunos detalles. Por eso, tu ayuda es fundamental. \n\nEn esta sección, me encantaría conocer tu opinión. Ideas, errores o experiencias, todos tus comentarios son bienvenidos. \n\nTu contribución mejorará esta aplicación dedicada a la población boliviana y potencialmente a usuarios de todo el mundo. \n\nGracias por descargar y disfrutar de este trabajo. Tu feedback es crucial para su continuo desarrollo y mejora.</string>
@@ -83,6 +85,7 @@
 
     <!--    Events-->
     <string name="day">Día</string>
+    <string name="events_message">Seleccione un mes para ver sus eventos</string>
 
     <!--    Populate-->
     <string name="inserts">Insertar</string>

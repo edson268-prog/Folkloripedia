@@ -14,6 +14,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.edsondev26.folkloripedia.databinding.FragmentMusicBinding
 import com.edsondev26.folkloripedia.ui.category_detail.adapter.MusicDetailFragmentViewHolder
+import com.edsondev26.folkloripedia.utils.SizeUtils
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -79,6 +80,8 @@ class MusicFragment : Fragment() {
                 releaseMediaPlayer()
             }
         }
+        binding.btnMinus.setOnClickListener { SizeUtils.changeFontSize(-2f, binding.tvMusicDescription) }
+        binding.btnPlus.setOnClickListener { SizeUtils.changeFontSize(2f, binding.tvMusicDescription) }
     }
 
     private fun playAudio() {

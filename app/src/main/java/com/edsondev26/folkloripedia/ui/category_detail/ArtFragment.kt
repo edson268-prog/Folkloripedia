@@ -12,6 +12,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.edsondev26.folkloripedia.databinding.FragmentArtBinding
 import com.edsondev26.folkloripedia.ui.category_detail.adapter.ArtDetailFragmentViewHolder
+import com.edsondev26.folkloripedia.utils.SizeUtils
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -47,6 +48,12 @@ class ArtFragment : Fragment() {
     private fun initUI() {
         setVisibility()
         getArtItem()
+        initListeners()
+    }
+
+    private fun initListeners() {
+        binding.btnMinus.setOnClickListener { SizeUtils.changeFontSize(-2f, binding.tvArtDescription) }
+        binding.btnPlus.setOnClickListener { SizeUtils.changeFontSize(2f, binding.tvArtDescription) }
     }
 
     private fun setVisibility() {

@@ -13,7 +13,7 @@ class ArtDetailFragmentViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         Picasso.get().load(artInfo.img).into(bindingArt.ivArt)
         bindingArt.tvArtName.text = artInfo.name
         bindingArt.tvArtAuthor.text = artInfo.author
-        bindingArt.tvArtDescription.text = artInfo.description
+        bindingArt.tvArtDescription.text = artInfo.description.replace("||", "\n\n")
         bindingArt.tvArtMaterial.text = artInfo.material
     }
 }

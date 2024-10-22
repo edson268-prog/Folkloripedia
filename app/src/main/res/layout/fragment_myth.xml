@@ -52,6 +52,29 @@
                     android:gravity="center_horizontal"
                     tools:text="HOMLA" />
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="end">
+
+                    <Button
+                        android:id="@+id/btn_minus"
+                        style="@style/SizeButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:text="-"/>
+
+                    <Button
+                        android:id="@+id/btn_plus"
+                        style="@style/SizeButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="+"/>
+
+                </LinearLayout>
+
                 <ScrollView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -62,7 +85,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="8dp"
-                        android:textSize="20sp"
+                        android:textSize="18sp"
                         android:scrollHorizontally="false"
                         android:textColor="@color/white"
                         tools:text="Description" />
